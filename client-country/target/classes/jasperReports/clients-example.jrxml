@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="clients-example" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9019e270-66bc-44bd-a3ab-f529e0fa23e6">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#dadee6"/>
+			<topPen lineWidth="0.5" lineColor="#dadee6"/>
+			<leftPen lineWidth="0.5" lineColor="#dadee6"/>
+			<bottomPen lineWidth="0.5" lineColor="#dadee6"/>
+			<rightPen lineWidth="0.5" lineColor="#dadee6"/>
+		</box>
+	</style>
+	<subDataset name="ItemDataset" uuid="2914f7c6-c2d7-448b-b0c1-090970e18ed6">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<parameter name="param1" class="java.lang.String"/>
+		<parameter name="param2" class="java.lang.String"/>
+		<parameter name="startToShiftSubreport1" class="net.sf.jasperreports.engine.JasperReport"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="pol" class="java.lang.String"/>
+		<field name="polList" class="java.util.List"/>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="clientSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="clientCountrySubreport" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="startToShiftSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="CLIENT_DS" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
+	<parameter name="BY_COUNTRY_DS" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
+	<parameter name="countryDatasetsList" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="300" height="40" uuid="54cdc3ae-74a4-42cb-9662-0364c2def856"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Client Report Example]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="50" y="70" width="23" height="24" forecolor="#E3DA19" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+					<propertyExpression name="net.sf.jasperreports.style.backcolor">$P{actualRankColor}</propertyExpression>
+					<propertyExpression name="net.sf.jasperreports.style.forecolor">$P{actualRankColor}</propertyExpression>
+				</reportElement>
+			</rectangle>
+		</band>
+	</title>
+	<detail>
+		<band height="150" splitType="Stretch">
+			<componentElement>
+				<reportElement x="4" y="0" width="241" height="111" forecolor="#dadee6" uuid="df91e678-c28a-43db-99bc-d9d9f6b94ff2">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="ItemDataset" uuid="944788df-79d2-437c-a519-306bb598bd05">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{countryDatasetsList})]]></dataSourceExpression>
+						<datasetParameter name="startToShiftSubreport1">
+							<datasetParameterExpression><![CDATA[$P{startToShiftSubreport}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:column width="200"  uuid="f7191622-c5c8-416a-b108-780482d59215">
+						<
+						<jr:columnFooter style="Table_TD" height="40">
+							<subreport>
+								<reportElement x="0" y="0" width="200" height="40" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
+								<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{polList})]]></dataSourceExpression>
+								<subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{startToShiftSubreport1}]]></subreportExpression>
+							</subreport>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="30"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

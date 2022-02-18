@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2015-11-25T00:02:30 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="template_Table" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1a0aa80b-dc07-4dca-bdbc-aa78eeb0d12b">
+
+    <parameter name="startToShiftSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
+    <parameter name="hourIcon" class="java.net.URL"/>
+    <field name="pol" class="java.lang.String"/>
+    <field name="pod" class="java.lang.String"/>
+    <field name="abm" class="java.lang.String"/>
+    <field name="hourBound" class="java.lang.String"/>
+    <field name="dayBound" class="java.lang.String"/>
+    <field name="startToShiftList" class="java.util.List"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <columnHeader>
+        <band height="30" >
+            <staticText>
+                <reportElement x="18" y="15" width="63" height="12" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+                </reportElement>
+                <textElement>
+                    <font fontName="Antonio" size="8"/>
+                </textElement>
+                <text><![CDATA[Shift options]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="94" y="15" width="90" height="12" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+                </reportElement>
+                <textElement>
+                    <font fontName="Antonio" size="8"/>
+                </textElement>
+                <text><![CDATA[Current start ops]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="202" y="15" width="110" height="12" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+                </reportElement>
+                <textElement>
+                    <font fontName="Antonio" size="8"/>
+                </textElement>
+                <text><![CDATA[Current start ops]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="300" y="15" width="110" height="12" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+                </reportElement>
+                <textElement>
+                    <font fontName="Antonio" size="8"/>
+                </textElement>
+                <text><![CDATA[Tie/Waiting time]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="380" y="15" width="110" height="12" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+                </reportElement>
+                <textElement>
+                    <font fontName="Antonio" size="8"/>
+                </textElement>
+                <text><![CDATA[New weather Factor]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="480" y="15" width="110" height="12" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+                </reportElement>
+                <textElement>
+                    <font fontName="Antonio" size="8"/>
+                </textElement>
+                <text><![CDATA[Transit time const.]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="50">
+            <rectangle>
+                <reportElement x="4" y="0" width="535" height="30" forecolor="#dadee6" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+                </reportElement>
+                <graphicElement>
+                    <pen lineWidth="0.1"/>
+                </graphicElement>
+            </rectangle>
+            <textField>
+                <reportElement  x="21" y="5"  width="60" height="9" forecolor="#072b77" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="Roboto" size="7"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{pol}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="21" y="16" width="60" height="9" forecolor="#072b77" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="Roboto" size="7"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{pod}]]></textFieldExpression>
+            </textField>
+            <ellipse>
+                <reportElement x="94" y="8" width="9" height="9" forecolor="#dadee6" backcolor="#dadee6" uuid="0b492007-c269-4d12-9657-06d73a949ed6"/>
+            </ellipse>
+            <textField>
+                <reportElement x="96" y="5" width="60" height="9" forecolor="#072b77" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="Roboto" size="7"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{abm}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="117" y="5" width="60" height="9" forecolor="#072b77" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="Roboto" size="7"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{dayBound}]]></textFieldExpression>
+            </textField>
+            <image>
+                <reportElement x="135" y="4" width="15" height="9" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+                <imageExpression><![CDATA["icon/hourIcon.png"]]></imageExpression>
+            </image>
+            <textField>
+                <reportElement x="148" y="5" width="60" height="9" forecolor="#072b77" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="Roboto" size="7"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{hourBound}]]></textFieldExpression>
+            </textField>
+            <subreport>
+                <reportElement x="180" y="-15" width="110" height="15" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
+                <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{startToShiftList})]]></dataSourceExpression>
+                <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{startToShiftSubreport}]]></subreportExpression>
+            </subreport>
+        </band>
+    </detail>
+</jasperReport>

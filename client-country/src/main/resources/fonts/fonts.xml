@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+    <fontFamily name="Arial">
+        <normal><![CDATA[fonts/Arial/arial.ttf]]></normal>
+        <bold><![CDATA[fonts/Arial/arialbd.ttf]]></bold>
+        <italic><![CDATA[fonts/Arial/ariali.ttf]]></italic>
+        <boldItalic><![CDATA[fonts/Arial/arialbi.ttf]]></boldItalic>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+    </fontFamily>
+
+    <fontFamily name="Agency FB">
+        <normal><![CDATA[fonts/AgencyFB/AGENCYR.TTF]]></normal>
+        <bold><![CDATA[fonts/AgencyFB/AGENCYB.TTF]]></bold>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+    </fontFamily>
+
+    <fontFamily name="Arial Black">
+        <normal><![CDATA[fonts/Arial/ariblk.ttf]]></normal>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+    </fontFamily>
+
+    <fontFamily name="Antonio">
+        <normal><![CDATA[fonts/Antonio/Antonio-Regular.ttf]]></normal>
+        <bold><![CDATA[fonts/Antonio/Antonio-Bold.ttf]]></bold>
+        <italic><![CDATA[fonts/Antonio/Antonio-Light.ttf]]></italic>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+    </fontFamily>
+
+    <fontFamily name="Roboto">
+        <normal><![CDATA[fonts/Roboto/roboto-regular.ttf]]></normal>
+        <bold><![CDATA[fonts/Roboto/roboto-bold.ttf]]></bold>
+        <italic><![CDATA[fonts/Roboto/roboto-light.ttf]]></italic>
+        <boldItalic><![CDATA[fonts/Roboto/roboto-medium.ttf]]></boldItalic>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+    </fontFamily>
+</fontFamilies>
