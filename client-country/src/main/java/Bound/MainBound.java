@@ -64,8 +64,8 @@ public class MainBound {
         List<StartToShift> startToShiftList1 = new ArrayList<>();
         startToShiftList1.add(s1);
         startToShiftList1.add(s2);
-    //    startToShiftList1.add(s3);
-    //    startToShiftList1.add(s4);
+        startToShiftList1.add(s3);
+        startToShiftList1.add(s4);
         boundData1.setStartToShiftList(startToShiftList1);
 
         BoundData boundData2 = new BoundData();
@@ -123,7 +123,7 @@ public class MainBound {
             currentStartCenter(jasperPrint, rectHeight, newPosY, indexRect);
             shiftOptionCenter(jasperPrint, rectHeight, newPosY, indexRect);
             newPosY += rectHeight;
-            indexRect += 14;
+            indexRect += 8 + 3*startToShiftSize;
         }
         /*
         int maxNb = listItems.get(0).getStartToShiftList().size();
