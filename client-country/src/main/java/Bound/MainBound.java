@@ -63,9 +63,9 @@ public class MainBound {
         s4.setHour("11:30");
         List<StartToShift> startToShiftList1 = new ArrayList<>();
         startToShiftList1.add(s1);
-        startToShiftList1.add(s2);
-        startToShiftList1.add(s3);
-        startToShiftList1.add(s4);
+    //    startToShiftList1.add(s2);
+    //    startToShiftList1.add(s3);
+     //   startToShiftList1.add(s4);
         boundData1.setStartToShiftList(startToShiftList1);
 
         BoundData boundData2 = new BoundData();
@@ -76,14 +76,28 @@ public class MainBound {
         boundData2.setHourBound("10:00");
         List<StartToShift> startToShiftList2 = new ArrayList<>();
         startToShiftList2.add(s1);
-        startToShiftList2.add(s2);
-        startToShiftList2.add(s3);
-        //    startToShiftList.add(s4);
+    //    startToShiftList2.add(s2);
+    //    startToShiftList2.add(s3);
+    //    startToShiftList2.add(s4);
         boundData2.setStartToShiftList(startToShiftList2);
+
+        BoundData boundData3 = new BoundData();
+        boundData3.setPod("GBLGP");
+        boundData2.setPol("GBLGPDLGP");
+        boundData3.setAbm("B");
+        boundData3.setDayBound("Fr");
+        boundData3.setHourBound("10:00");
+        List<StartToShift> startToShiftList3 = new ArrayList<>();
+   //     startToShiftList3.add(s1);
+        startToShiftList3.add(s2);
+        startToShiftList3.add(s3);
+        startToShiftList3.add(s4);
+        boundData3.setStartToShiftList(startToShiftList3);
 
         /* Add Items to List */
         listItems.add(boundData1);
         listItems.add(boundData2);
+        listItems.add(boundData3);
 
         /* Convert List to JRBeanCollectionDataSource */
         JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(listItems);
@@ -107,21 +121,22 @@ public class MainBound {
 
         int indexRect = 6;
         int newPosY = jasperPrint.getPages().get(0).getElements().get(indexRect).getY();
-        int rectHeight = jasperPrint.getPages().get(0).getElements().get(indexRect).getHeight();
 
         for(BoundData boundData : listItems){
             int startToShiftSize = boundData.getStartToShiftList().size();
-            int rectPosY = jasperPrint.getPages().get(0).getElements().get(indexRect).getY();
+            int rectHeight = jasperPrint.getPages().get(0).getElements().get(indexRect).getHeight();
 
             if(startToShiftSize>2) {
                 jasperPrint.getPages().get(0).getElements().get(indexRect).setHeight(rectHeight + 11 * (startToShiftSize - 2));
-                jasperPrint.getPages().get(0).getElements().get(indexRect).setY(newPosY);
             }
 
+            jasperPrint.getPages().get(0).getElements().get(indexRect).setY(newPosY);
             rectHeight = jasperPrint.getPages().get(0).getElements().get(indexRect).getHeight();
+
             startShiftCenter(jasperPrint, newPosY, startToShiftSize, indexRect);
             currentStartCenter(jasperPrint, rectHeight, newPosY, indexRect);
             shiftOptionCenter(jasperPrint, rectHeight, newPosY, indexRect);
+
             newPosY += rectHeight;
             indexRect += 8 + 3*startToShiftSize;
         }
@@ -174,14 +189,14 @@ public class MainBound {
             jasperPrint.getPages().get(0).getElements().get(indexRect+9).setY(rectPosY+11);
             jasperPrint.getPages().get(0).getElements().get(indexRect+10).setY(rectPosY+11);
         }
-        if(startToShiftSize == 2){
+        else if(startToShiftSize == 2){
             jasperPrint.getPages().get(0).getElements().get(indexRect+8).setY(rectPosY+5);
             jasperPrint.getPages().get(0).getElements().get(indexRect+9).setY(rectPosY+5);
             jasperPrint.getPages().get(0).getElements().get(indexRect+10).setY(rectPosY+5);
             jasperPrint.getPages().get(0).getElements().get(indexRect+11).setY(rectPosY+15);
             jasperPrint.getPages().get(0).getElements().get(indexRect+12).setY(rectPosY+15);
             jasperPrint.getPages().get(0).getElements().get(indexRect+13).setY(rectPosY+15);
-        } else {
+        } else if(startToShiftSize > 2) {
             for(int i = 0; i<startToShiftSize ; i++){
                 jasperPrint.getPages().get(0).getElements().get(indexRect+i*3+8).setY(rectPosY+5 + i*10);
                 jasperPrint.getPages().get(0).getElements().get(indexRect+i*3+9).setY(rectPosY+5 + i*10);
