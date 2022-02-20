@@ -129,86 +129,86 @@ public class MainBound {
         String fileName = "C:\\Temp\\noa-final.pdf";
         JasperPrint jasperPrint = JasperFillManager.fillReport(masteTableReport, parameters, new JREmptyDataSource());
 
-        fixPosition(jasperPrint,0, listItems);
+        fixPosition(jasperPrint.getPages().get(0).getElements(),0, listItems);
 
         JasperExportManager.exportReportToPdfStream(jasperPrint, new FileOutputStream(fileName));
     }
 
-    static public void fixPosition(JasperPrint jasperPrint, int positionOfRect, List<BoundData> listItems){
+    static public void fixPosition(List<JRPrintElement> jasperPrintElements, int positionOfRect, List<BoundData> listItems){
 
         int indexRect = 6;
-        int newPosY = jasperPrint.getPages().get(0).getElements().get(indexRect).getY();
+        int newPosY = jasperPrintElements.get(indexRect).getY();
 
         for(BoundData boundData : listItems) {
             int startToShiftSize = boundData.getStartToShiftList().size();
-            int rectHeight = jasperPrint.getPages().get(0).getElements().get(indexRect).getHeight();
+            int rectHeight = jasperPrintElements.get(indexRect).getHeight();
 
             if (startToShiftSize > 2) {
-                jasperPrint.getPages().get(0).getElements().get(indexRect).setHeight(rectHeight + 11 * (startToShiftSize - 2));
+                jasperPrintElements.get(indexRect).setHeight(rectHeight + 11 * (startToShiftSize - 2));
             }
 
-            jasperPrint.getPages().get(0).getElements().get(indexRect).setY(newPosY);
-            rectHeight = jasperPrint.getPages().get(0).getElements().get(indexRect).getHeight();
+            jasperPrintElements.get(indexRect).setY(newPosY);
+            rectHeight = jasperPrintElements.get(indexRect).getHeight();
 
-            shiftOptionCenter(jasperPrint, rectHeight, newPosY, indexRect);
-            currentStartCenter(jasperPrint, rectHeight, newPosY, indexRect);
-            startShiftCenter(jasperPrint, newPosY, startToShiftSize, indexRect);
-            tieBufferCenter(jasperPrint, rectHeight, newPosY, indexRect + startToShiftSize * 3 + 8);
-            weatherFactorCenter(jasperPrint, rectHeight, newPosY, indexRect + startToShiftSize * 3 + 8);
-            transitTimeConstCenter(jasperPrint, rectHeight, newPosY, indexRect + startToShiftSize * 3 + 8);
+            shiftOptionCenter(jasperPrintElements, rectHeight, newPosY, indexRect);
+            currentStartCenter(jasperPrintElements, rectHeight, newPosY, indexRect);
+            startShiftCenter(jasperPrintElements, newPosY, startToShiftSize, indexRect);
+            tieBufferCenter(jasperPrintElements, rectHeight, newPosY, indexRect + startToShiftSize * 3 + 8);
+            weatherFactorCenter(jasperPrintElements, rectHeight, newPosY, indexRect + startToShiftSize * 3 + 8);
+            transitTimeConstCenter(jasperPrintElements, rectHeight, newPosY, indexRect + startToShiftSize * 3 + 8);
             newPosY += rectHeight;
             indexRect += 14 + 3 * startToShiftSize;
         }
     }
 
-    public static void shiftOptionCenter(JasperPrint jasperPrint, int rectHeight, int rectPosY, int indexRect){
-        jasperPrint.getPages().get(0).getElements().get(indexRect+1).setY(rectPosY+rectHeight/2-10);
-        jasperPrint.getPages().get(0).getElements().get(indexRect+2).setY(rectPosY+rectHeight/2+1);
+    public static void shiftOptionCenter(List<JRPrintElement> jasperPrintElements, int rectHeight, int rectPosY, int indexRect){
+        jasperPrintElements.get(indexRect+1).setY(rectPosY+rectHeight/2-10);
+        jasperPrintElements.get(indexRect+2).setY(rectPosY+rectHeight/2+1);
     }
 
-    public static void currentStartCenter(JasperPrint jasperPrint, int rectHeight, int rectPosY, int indexRect){
-        jasperPrint.getPages().get(0).getElements().get(indexRect+3).setY(rectPosY+rectHeight/2-4);
-        jasperPrint.getPages().get(0).getElements().get(indexRect+4).setY(rectPosY+rectHeight/2-4);
-        jasperPrint.getPages().get(0).getElements().get(indexRect+5).setY(rectPosY+rectHeight/2-4);
-        jasperPrint.getPages().get(0).getElements().get(indexRect+6).setY(rectPosY+rectHeight/2-3);
-        jasperPrint.getPages().get(0).getElements().get(indexRect+7).setY(rectPosY+rectHeight/2-4);
+    public static void currentStartCenter(List<JRPrintElement> jasperPrintElements, int rectHeight, int rectPosY, int indexRect){
+        jasperPrintElements.get(indexRect+3).setY(rectPosY+rectHeight/2-4);
+        jasperPrintElements.get(indexRect+4).setY(rectPosY+rectHeight/2-4);
+        jasperPrintElements.get(indexRect+5).setY(rectPosY+rectHeight/2-4);
+        jasperPrintElements.get(indexRect+6).setY(rectPosY+rectHeight/2-3);
+        jasperPrintElements.get(indexRect+7).setY(rectPosY+rectHeight/2-4);
     }
 
-    public static void startShiftCenter(JasperPrint jasperPrint, int rectPosY, int startToShiftSize, int indexRect){
+    public static void startShiftCenter(List<JRPrintElement> jasperPrintElements, int rectPosY, int startToShiftSize, int indexRect){
         if(startToShiftSize == 1){
-            jasperPrint.getPages().get(0).getElements().get(indexRect+8).setY(rectPosY+11);
-            jasperPrint.getPages().get(0).getElements().get(indexRect+9).setY(rectPosY+12);
-            jasperPrint.getPages().get(0).getElements().get(indexRect+10).setY(rectPosY+11);
+            jasperPrintElements.get(indexRect+8).setY(rectPosY+11);
+            jasperPrintElements.get(indexRect+9).setY(rectPosY+12);
+            jasperPrintElements.get(indexRect+10).setY(rectPosY+11);
         }
         else if(startToShiftSize == 2){
-            jasperPrint.getPages().get(0).getElements().get(indexRect+8).setY(rectPosY+5);
-            jasperPrint.getPages().get(0).getElements().get(indexRect+9).setY(rectPosY+6);
-            jasperPrint.getPages().get(0).getElements().get(indexRect+10).setY(rectPosY+5);
-            jasperPrint.getPages().get(0).getElements().get(indexRect+11).setY(rectPosY+15);
-            jasperPrint.getPages().get(0).getElements().get(indexRect+12).setY(rectPosY+16);
-            jasperPrint.getPages().get(0).getElements().get(indexRect+13).setY(rectPosY+15);
+            jasperPrintElements.get(indexRect+8).setY(rectPosY+5);
+            jasperPrintElements.get(indexRect+9).setY(rectPosY+6);
+            jasperPrintElements.get(indexRect+10).setY(rectPosY+5);
+            jasperPrintElements.get(indexRect+11).setY(rectPosY+15);
+            jasperPrintElements.get(indexRect+12).setY(rectPosY+16);
+            jasperPrintElements.get(indexRect+13).setY(rectPosY+15);
         } else if(startToShiftSize > 2) {
             for(int i = 0; i<startToShiftSize ; i++){
-                jasperPrint.getPages().get(0).getElements().get(indexRect+i*3+8).setY(rectPosY+5 + i*11);
-                jasperPrint.getPages().get(0).getElements().get(indexRect+i*3+9).setY(rectPosY+6 + i*11);
-                jasperPrint.getPages().get(0).getElements().get(indexRect+i*3+10).setY(rectPosY+5 + i*11);
+                jasperPrintElements.get(indexRect+i*3+8).setY(rectPosY+5 + i*11);
+                jasperPrintElements.get(indexRect+i*3+9).setY(rectPosY+6 + i*11);
+                jasperPrintElements.get(indexRect+i*3+10).setY(rectPosY+5 + i*11);
             }
         }
     }
 
-    public static void tieBufferCenter(JasperPrint jasperPrint, int rectHeight, int rectPosY, int pos){
-        jasperPrint.getPages().get(0).getElements().get(pos).setY(rectPosY+rectHeight/2-4);
+    public static void tieBufferCenter(List<JRPrintElement> jasperPrintElements, int rectHeight, int rectPosY, int pos){
+        jasperPrintElements.get(pos).setY(rectPosY+rectHeight/2-4);
     }
 
-    public static void weatherFactorCenter(JasperPrint jasperPrint, int rectHeight, int rectPosY, int pos){
-        jasperPrint.getPages().get(0).getElements().get(pos+1).setY(rectPosY+rectHeight/2-4);
+    public static void weatherFactorCenter(List<JRPrintElement> jasperPrintElements, int rectHeight, int rectPosY, int pos){
+        jasperPrintElements.get(pos+1).setY(rectPosY+rectHeight/2-4);
     }
 
-    public static void transitTimeConstCenter(JasperPrint jasperPrint, int rectHeight, int rectPosY, int pos){
-        jasperPrint.getPages().get(0).getElements().get(pos+2).setY(rectPosY+rectHeight/2-10);
-        jasperPrint.getPages().get(0).getElements().get(pos+3).setY(rectPosY+rectHeight/2-10);
-        jasperPrint.getPages().get(0).getElements().get(pos+4).setY(rectPosY+rectHeight/2+1);
-        jasperPrint.getPages().get(0).getElements().get(pos+5).setY(rectPosY+rectHeight/2+1);
+    public static void transitTimeConstCenter(List<JRPrintElement> jasperPrintElements, int rectHeight, int rectPosY, int pos){
+        jasperPrintElements.get(pos+2).setY(rectPosY+rectHeight/2-10);
+        jasperPrintElements.get(pos+3).setY(rectPosY+rectHeight/2-10);
+        jasperPrintElements.get(pos+4).setY(rectPosY+rectHeight/2+1);
+        jasperPrintElements.get(pos+5).setY(rectPosY+rectHeight/2+1);
     }
 
 }
