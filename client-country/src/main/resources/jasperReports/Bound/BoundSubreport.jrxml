@@ -31,7 +31,7 @@
                 <text><![CDATA[Shift options]]></text>
             </staticText>
             <staticText>
-                <reportElement x="80" y="15" width="90" height="12" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+                <reportElement x="92" y="15" width="90" height="12" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
                 </reportElement>
                 <textElement>
                     <font fontName="Antonio" size="8"/>
@@ -39,7 +39,7 @@
                 <text><![CDATA[Current start ops]]></text>
             </staticText>
             <staticText>
-                <reportElement x="182" y="15" width="110" height="12" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+                <reportElement x="212" y="15" width="110" height="12" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
                 </reportElement>
                 <textElement>
                     <font fontName="Antonio" size="8"/>
