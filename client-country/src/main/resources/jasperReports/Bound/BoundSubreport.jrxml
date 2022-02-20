@@ -13,6 +13,10 @@
     <field name="startToShiftList" class="java.util.List"/>
     <field name="tieBuffer" class="java.lang.String"/>
     <field name="weatherFactor" class="java.lang.String"/>
+    <field name="ttConst1" class="java.lang.String"/>
+    <field name="ttConst2" class="java.lang.String"/>
+    <field name="ttConst3" class="java.lang.String"/>
+    <field name="ttConst4" class="java.lang.String"/>
     <background>
         <band splitType="Stretch"/>
     </background>
@@ -137,6 +141,34 @@
                     <font fontName="Roboto" size="7"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{weatherFactor}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="470" y="5" width="40" height="9" forecolor="#072b77" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="Roboto" size="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ttConst1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="500" y="5" width="40" height="9" forecolor="#072b77" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="Roboto" size="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ttConst2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="470" y="16" width="40" height="9" forecolor="#072b77" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="Roboto" size="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ttConst3}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="500" y="16" width="40" height="9" forecolor="#072b77" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font fontName="Roboto" size="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ttConst4}]]></textFieldExpression>
             </textField>
         </band>
     </detail>

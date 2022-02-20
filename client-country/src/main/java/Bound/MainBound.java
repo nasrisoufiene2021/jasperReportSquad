@@ -67,6 +67,10 @@ public class MainBound {
         boundData1.setStartToShiftList(startToShiftList1);
         boundData1.setTieBuffer("12h");
         boundData1.setWeatherFactor("1,1 knts");
+        boundData1.setTtConst1("Lorem");
+        boundData1.setTtConst2("ipsum");
+        boundData1.setTtConst3("Lorem");
+        boundData1.setTtConst4("ipsum");
 
         BoundData boundData2 = new BoundData();
         boundData2.setPod("GBLGP");
@@ -82,6 +86,10 @@ public class MainBound {
         boundData2.setStartToShiftList(startToShiftList2);
         boundData2.setTieBuffer("0h");
         boundData2.setWeatherFactor("0 knts");
+        boundData2.setTtConst1("Lorem");
+        boundData2.setTtConst2("ipsum");
+        boundData2.setTtConst3("Lorem");
+        boundData2.setTtConst4("ipsum");
 
         BoundData boundData3 = new BoundData();
         boundData3.setPod("GBLGP");
@@ -97,7 +105,10 @@ public class MainBound {
         boundData3.setStartToShiftList(startToShiftList3);
         boundData3.setTieBuffer("2h");
         boundData3.setWeatherFactor("0 knts");
-
+        boundData3.setTtConst1("Lorem");
+        boundData3.setTtConst2("ipsum");
+        boundData3.setTtConst3("Lorem");
+        boundData3.setTtConst4("ipsum");
         /* Add Items to List */
         List<BoundData> listItems = new ArrayList<BoundData>();
 
@@ -144,9 +155,9 @@ public class MainBound {
             startShiftCenter(jasperPrint, newPosY, startToShiftSize, indexRect);
             tieBufferCenter(jasperPrint, rectHeight, newPosY, indexRect + startToShiftSize * 3 + 8);
             weatherFactorCenter(jasperPrint, rectHeight, newPosY, indexRect + startToShiftSize * 3 + 8);
-
+            transitTimeConstCenter(jasperPrint, rectHeight, newPosY, indexRect + startToShiftSize * 3 + 8);
             newPosY += rectHeight;
-            indexRect += 10 + 3 * startToShiftSize;
+            indexRect += 14 + 3 * startToShiftSize;
         }
     }
 
@@ -187,12 +198,17 @@ public class MainBound {
 
     public static void tieBufferCenter(JasperPrint jasperPrint, int rectHeight, int rectPosY, int pos){
         jasperPrint.getPages().get(0).getElements().get(pos).setY(rectPosY+rectHeight/2-4);
-        jasperPrint.getPages().get(0).getElements().get(pos+1).setY(rectPosY+rectHeight/2-4);
     }
 
     public static void weatherFactorCenter(JasperPrint jasperPrint, int rectHeight, int rectPosY, int pos){
         jasperPrint.getPages().get(0).getElements().get(pos+1).setY(rectPosY+rectHeight/2-4);
     }
 
+    public static void transitTimeConstCenter(JasperPrint jasperPrint, int rectHeight, int rectPosY, int pos){
+        jasperPrint.getPages().get(0).getElements().get(pos+2).setY(rectPosY+rectHeight/2-10);
+        jasperPrint.getPages().get(0).getElements().get(pos+3).setY(rectPosY+rectHeight/2-10);
+        jasperPrint.getPages().get(0).getElements().get(pos+4).setY(rectPosY+rectHeight/2+1);
+        jasperPrint.getPages().get(0).getElements().get(pos+5).setY(rectPosY+rectHeight/2+1);
+    }
 
 }

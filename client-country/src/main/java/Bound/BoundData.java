@@ -16,6 +16,10 @@ public class BoundData {
     private List<StartToShift> startToShiftList;
     private String tieBuffer;
     private String weatherFactor;
+    private String ttConst1;
+    private String ttConst2;
+    private String ttConst3;
+    private String ttConst4;
 
     public String getPol() {
         return pol;
@@ -87,6 +91,38 @@ public class BoundData {
 
     public void setWeatherFactor(String weatherFactor) {
         this.weatherFactor = weatherFactor;
+    }
+
+    public String getTtConst1() {
+        return ttConst1;
+    }
+
+    public void setTtConst1(String ttConst1) {
+        this.ttConst1 = ttConst1;
+    }
+
+    public String getTtConst2() {
+        return ttConst2;
+    }
+
+    public void setTtConst2(String ttConst2) {
+        this.ttConst2 = ttConst2;
+    }
+
+    public String getTtConst3() {
+        return ttConst3;
+    }
+
+    public void setTtConst3(String ttConst3) {
+        this.ttConst3 = ttConst3;
+    }
+
+    public String getTtConst4() {
+        return ttConst4;
+    }
+
+    public void setTtConst4(String ttConst4) {
+        this.ttConst4 = ttConst4;
     }
 
     // getter-setter
