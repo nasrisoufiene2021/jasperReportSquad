@@ -39,8 +39,6 @@ public class MainBound {
         classPathResource = new ClassPathResource(systemPath + "Bound/startToShiftSubreport.jrxml");
         JasperReport startToShiftSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
 
-        List<BoundData> listItems = new ArrayList<BoundData>();
-
         /* Create Items */
         BoundData boundData1 = new BoundData();
         boundData1.setPod("NLRTM");
@@ -67,6 +65,8 @@ public class MainBound {
     //    startToShiftList1.add(s3);
      //   startToShiftList1.add(s4);
         boundData1.setStartToShiftList(startToShiftList1);
+        boundData1.setTieBuffer("12h");
+        boundData1.setWeatherFactor("1,1 knts");
 
         BoundData boundData2 = new BoundData();
         boundData2.setPod("GBLGP");
@@ -80,6 +80,8 @@ public class MainBound {
     //    startToShiftList2.add(s3);
     //    startToShiftList2.add(s4);
         boundData2.setStartToShiftList(startToShiftList2);
+        boundData2.setTieBuffer("0h");
+        boundData2.setWeatherFactor("0 knts");
 
         BoundData boundData3 = new BoundData();
         boundData3.setPod("GBLGP");
@@ -93,17 +95,21 @@ public class MainBound {
         startToShiftList3.add(s3);
         startToShiftList3.add(s4);
         boundData3.setStartToShiftList(startToShiftList3);
+        boundData3.setTieBuffer("2h");
+        boundData3.setWeatherFactor("0 knts");
 
         /* Add Items to List */
+        List<BoundData> listItems = new ArrayList<BoundData>();
+
         listItems.add(boundData1);
         listItems.add(boundData2);
         listItems.add(boundData3);
 
         /* Convert List to JRBeanCollectionDataSource */
-        JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(listItems);
+        JRBeanCollectionDataSource boundDataSource = new JRBeanCollectionDataSource(listItems);
         /* Map to hold Jasper report Parameters */
         Map<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("boundDataSource", itemsJRBean);
+        parameters.put("boundDataSource", boundDataSource);
         parameters.put("boundSubreport", boundSubreport);
         parameters.put("startToShiftSubreport", startToShiftSubreport);
         URL headerIcon = MainBound.class.getClassLoader().getResource(File.separator+"icon" + File.separator+ "hourIcon.png");
@@ -122,52 +128,26 @@ public class MainBound {
         int indexRect = 6;
         int newPosY = jasperPrint.getPages().get(0).getElements().get(indexRect).getY();
 
-        for(BoundData boundData : listItems){
+        for(BoundData boundData : listItems) {
             int startToShiftSize = boundData.getStartToShiftList().size();
             int rectHeight = jasperPrint.getPages().get(0).getElements().get(indexRect).getHeight();
 
-            if(startToShiftSize>2) {
+            if (startToShiftSize > 2) {
                 jasperPrint.getPages().get(0).getElements().get(indexRect).setHeight(rectHeight + 11 * (startToShiftSize - 2));
             }
 
             jasperPrint.getPages().get(0).getElements().get(indexRect).setY(newPosY);
             rectHeight = jasperPrint.getPages().get(0).getElements().get(indexRect).getHeight();
 
-            startShiftCenter(jasperPrint, newPosY, startToShiftSize, indexRect);
-            currentStartCenter(jasperPrint, rectHeight, newPosY, indexRect);
             shiftOptionCenter(jasperPrint, rectHeight, newPosY, indexRect);
+            currentStartCenter(jasperPrint, rectHeight, newPosY, indexRect);
+            startShiftCenter(jasperPrint, newPosY, startToShiftSize, indexRect);
+            tieBufferCenter(jasperPrint, rectHeight, newPosY, indexRect + startToShiftSize * 3 + 8);
+            weatherFactorCenter(jasperPrint, rectHeight, newPosY, indexRect + startToShiftSize * 3 + 8);
 
             newPosY += rectHeight;
-            indexRect += 8 + 3*startToShiftSize;
+            indexRect += 10 + 3 * startToShiftSize;
         }
-        /*
-        int maxNb = listItems.get(0).getStartToShiftList().size();
-        int rectHeight = jasperPrint.getPages().get(0).getElements().get(6).getHeight();
-        int rectPosY = jasperPrint.getPages().get(0).getElements().get(6).getY();
-
-        if(maxNb>2)
-            jasperPrint.getPages().get(0).getElements().get(6).setHeight(rectHeight+11*(maxNb-2));
-        else{
-            startShiftCenter(jasperPrint, rectHeight, rectPosY, maxNb);
-        }
-        shiftOptionCenter(jasperPrint, rectHeight, rectPosY);
-        currentStartCenter(jasperPrint, rectHeight, rectPosY);
-
-
-        jasperPrint.getPages().get(0).getElements().get(6).setHeight(200);
-        JRPrintElement jrPrintElement = new JRTemplatePrintRectangle();
-        jrPrintElement.setX(200);
-        jrPrintElement.setY(200);
-        jrPrintElement.setHeight(200);
-        jrPrintElement.setWidth(200);
-        UUID uuid = new UUID(125412l,122121l);
-        jrPrintElement.setUUID(uuid);
-        jrPrintElement.setForecolor(new Color(255, 0, 0));
-        jasperPrint.getPages().get(0).getElements().add(jrPrintElement);
-        jasperPrint.getPages().get(0).getElements().get(6).setX(170);
-        jasperPrint.getPages().get(0).getElements().get(9).setHeight(200);
-
-         */
     }
 
     public static void shiftOptionCenter(JasperPrint jasperPrint, int rectHeight, int rectPosY, int indexRect){
@@ -179,30 +159,39 @@ public class MainBound {
         jasperPrint.getPages().get(0).getElements().get(indexRect+3).setY(rectPosY+rectHeight/2-4);
         jasperPrint.getPages().get(0).getElements().get(indexRect+4).setY(rectPosY+rectHeight/2-4);
         jasperPrint.getPages().get(0).getElements().get(indexRect+5).setY(rectPosY+rectHeight/2-4);
-        jasperPrint.getPages().get(0).getElements().get(indexRect+6).setY(rectPosY+rectHeight/2-4);
+        jasperPrint.getPages().get(0).getElements().get(indexRect+6).setY(rectPosY+rectHeight/2-3);
         jasperPrint.getPages().get(0).getElements().get(indexRect+7).setY(rectPosY+rectHeight/2-4);
     }
 
     public static void startShiftCenter(JasperPrint jasperPrint, int rectPosY, int startToShiftSize, int indexRect){
         if(startToShiftSize == 1){
             jasperPrint.getPages().get(0).getElements().get(indexRect+8).setY(rectPosY+11);
-            jasperPrint.getPages().get(0).getElements().get(indexRect+9).setY(rectPosY+11);
+            jasperPrint.getPages().get(0).getElements().get(indexRect+9).setY(rectPosY+12);
             jasperPrint.getPages().get(0).getElements().get(indexRect+10).setY(rectPosY+11);
         }
         else if(startToShiftSize == 2){
             jasperPrint.getPages().get(0).getElements().get(indexRect+8).setY(rectPosY+5);
-            jasperPrint.getPages().get(0).getElements().get(indexRect+9).setY(rectPosY+5);
+            jasperPrint.getPages().get(0).getElements().get(indexRect+9).setY(rectPosY+6);
             jasperPrint.getPages().get(0).getElements().get(indexRect+10).setY(rectPosY+5);
             jasperPrint.getPages().get(0).getElements().get(indexRect+11).setY(rectPosY+15);
-            jasperPrint.getPages().get(0).getElements().get(indexRect+12).setY(rectPosY+15);
+            jasperPrint.getPages().get(0).getElements().get(indexRect+12).setY(rectPosY+16);
             jasperPrint.getPages().get(0).getElements().get(indexRect+13).setY(rectPosY+15);
         } else if(startToShiftSize > 2) {
             for(int i = 0; i<startToShiftSize ; i++){
-                jasperPrint.getPages().get(0).getElements().get(indexRect+i*3+8).setY(rectPosY+5 + i*10);
-                jasperPrint.getPages().get(0).getElements().get(indexRect+i*3+9).setY(rectPosY+5 + i*10);
-                jasperPrint.getPages().get(0).getElements().get(indexRect+i*3+10).setY(rectPosY+5 + i*10);
+                jasperPrint.getPages().get(0).getElements().get(indexRect+i*3+8).setY(rectPosY+5 + i*11);
+                jasperPrint.getPages().get(0).getElements().get(indexRect+i*3+9).setY(rectPosY+6 + i*11);
+                jasperPrint.getPages().get(0).getElements().get(indexRect+i*3+10).setY(rectPosY+5 + i*11);
             }
         }
+    }
+
+    public static void tieBufferCenter(JasperPrint jasperPrint, int rectHeight, int rectPosY, int pos){
+        jasperPrint.getPages().get(0).getElements().get(pos).setY(rectPosY+rectHeight/2-4);
+        jasperPrint.getPages().get(0).getElements().get(pos+1).setY(rectPosY+rectHeight/2-4);
+    }
+
+    public static void weatherFactorCenter(JasperPrint jasperPrint, int rectHeight, int rectPosY, int pos){
+        jasperPrint.getPages().get(0).getElements().get(pos+1).setY(rectPosY+rectHeight/2-4);
     }
 
 

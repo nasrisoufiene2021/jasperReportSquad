@@ -12,9 +12,10 @@ public class BoundData {
     private String abm;
     private String hourBound;
     private String dayBound;
-
     private URL headerIcon;
     private List<StartToShift> startToShiftList;
+    private String tieBuffer;
+    private String weatherFactor;
 
     public String getPol() {
         return pol;
@@ -70,6 +71,22 @@ public class BoundData {
 
     public void setHeaderIcon(URL headerIcon) {
         this.headerIcon = headerIcon;
+    }
+
+    public String getTieBuffer() {
+        return tieBuffer;
+    }
+
+    public void setTieBuffer(String tieBuffer) {
+        this.tieBuffer = tieBuffer;
+    }
+
+    public String getWeatherFactor() {
+        return weatherFactor;
+    }
+
+    public void setWeatherFactor(String weatherFactor) {
+        this.weatherFactor = weatherFactor;
     }
 
     // getter-setter
