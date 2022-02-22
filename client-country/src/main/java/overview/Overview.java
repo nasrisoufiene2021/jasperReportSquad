@@ -11,6 +11,9 @@ public class Overview {
     private URL emissionIcon;
     private URL rotationIcon;
     private Integer bwChange;
+    private String vessel;
+    private Integer totalEmission;
+    private String rotationDuration;
 
     public Float getTotalSaving() {
         return totalSaving;
@@ -74,5 +77,29 @@ public class Overview {
 
     public void setBwChange(Integer bwChange) {
         this.bwChange = bwChange;
+    }
+
+    public String getVessel() {
+        return vessel;
+    }
+
+    public void setVessel(String vessel) {
+        this.vessel = vessel;
+    }
+
+    public Integer getTotalEmission() {
+        return totalEmission;
+    }
+
+    public void setTotalEmission(Integer totalEmission) {
+        this.totalEmission = totalEmission;
+    }
+
+    public String getRotationDuration() {
+        return rotationDuration;
+    }
+
+    public void setRotationDuration(String rotationDuration) {
+        this.rotationDuration = rotationDuration;
     }
 }

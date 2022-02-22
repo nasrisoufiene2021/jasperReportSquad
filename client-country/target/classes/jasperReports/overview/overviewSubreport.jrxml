@@ -10,6 +10,9 @@
 	<field name="emissionIcon" class="java.net.URL"/>
 	<field name="rotationIcon" class="java.net.URL"/>
 	<field name="bwChange" class="java.lang.Integer"/>
+	<field name="vessel" class="java.lang.String"/>
+	<field name="totalEmission" class="java.lang.Integer"/>
+	<field name="rotationDuration" class="java.lang.String"/>
 	<columnHeader>
 	</columnHeader>
 	<detail>
@@ -78,6 +81,105 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{bwChange}]]></textFieldExpression>
 			</textField>
+
+
+
+			<rectangle>
+				<reportElement x="185" y="0" width="175" height="71" forecolor="#dadee6" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="197" y="14" width="7" height="7" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+				<imageExpression><![CDATA[$F{vesselIcon}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="207" y="12" width="70" height="8" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<text><![CDATA[Vessels]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="18" width="70" height="5" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="4"/>
+				</textElement>
+				<text><![CDATA[used for conso calculation]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="11" width="40" height="15" forecolor="#04246a" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="7.2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vessel}]]></textFieldExpression>
+			</textField>
+
+
+
+			<image>
+				<reportElement x="197" y="32" width="7" height="7" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+				<imageExpression><![CDATA[$F{emissionIcon}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="207" y="29" width="70" height="8" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<text><![CDATA[Total Emissions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="35" width="70" height="5" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="4"/>
+				</textElement>
+				<text><![CDATA[Annualized difference]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="27" width="80" height="15" forecolor="#04246a" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="7.2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalEmission}+" Co2"]]></textFieldExpression>
+			</textField>
+
+
+
+			<image>
+				<reportElement x="197" y="48" width="7" height="7" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+				<imageExpression><![CDATA[$F{rotationIcon}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="207" y="48" width="70" height="8" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="6"/>
+				</textElement>
+				<text><![CDATA[Rotation duration]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="285" y="43" width="80" height="15" forecolor="#04246a" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="7.2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rotationDuration}]]></textFieldExpression>
+			</textField>
+
+
+			<rectangle>
+				<reportElement x="370" y="0" width="175" height="71" forecolor="#dadee6" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+
 		</band>
 	</detail>
 </jasperReport>

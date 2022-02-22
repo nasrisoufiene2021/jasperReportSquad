@@ -51,6 +51,9 @@ public class MainOverview {
         Overview overview = new Overview();
         overview.setTotalSaving(35.25f);
         overview.setBwChange(5);
+        overview.setVessel("BUXCLIFF");
+        overview.setTotalEmission(2145214);
+        overview.setRotationDuration("Curent - 7 days");
         loadIcons(overview);
         listOverview.add(overview);
         return listOverview;
