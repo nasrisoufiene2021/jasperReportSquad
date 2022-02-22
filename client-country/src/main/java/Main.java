@@ -46,7 +46,7 @@ public class Main {
         ClassPathResource classPathResource2 = new ClassPathResource(systemPath + "client-list.jrxml");
         JasperReport clientSubreport = JasperCompileManager.compileReport(classPathResource2.getInputStream());
 
-        classPathResource = new ClassPathResource(systemPath + "startToShiftSubreport.jrxml");
+        classPathResource = new ClassPathResource(systemPath + "overviewSubreport.jrxml");
         JasperReport startToShiftSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
 
 
@@ -98,10 +98,10 @@ public class Main {
         ClassPathResource classPathResource = new ClassPathResource(systemPath + "MasterTable.jrxml");
         JasperReport masteTableReport = JasperCompileManager.compileReport(classPathResource.getInputStream());
 
-        classPathResource = new ClassPathResource(systemPath + "BoundSubreport.jrxml");
+        classPathResource = new ClassPathResource(systemPath + "boundSubreport.jrxml");
         JasperReport boundSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
 
-        classPathResource = new ClassPathResource(systemPath + "startToShiftSubreport.jrxml");
+        classPathResource = new ClassPathResource(systemPath + "overviewSubreport.jrxml");
         JasperReport startToShiftSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
         List<BoundData> listItems = new ArrayList<BoundData>();
 

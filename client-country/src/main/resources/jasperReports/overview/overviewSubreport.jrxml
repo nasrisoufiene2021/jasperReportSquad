@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="client-list" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d5dce555-6fb2-412a-8421-3460f95acb03">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<field name="totalSaving" class="java.lang.Float"/>
+	<field name="overviewIcon" class="java.net.URL"/>
+	<field name="totalSavingIcon" class="java.net.URL"/>
+	<field name="bwChangeIcon" class="java.net.URL"/>
+	<field name="vesselIcon" class="java.net.URL"/>
+	<field name="emissionIcon" class="java.net.URL"/>
+	<field name="rotationIcon" class="java.net.URL"/>
+	<field name="bwChange" class="java.lang.Integer"/>
+	<columnHeader>
+	</columnHeader>
+	<detail>
+		<band height="171" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="175" height="25" forecolor="#dadee6" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="5" y="5" width="14" height="14" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+				<imageExpression><![CDATA[$F{overviewIcon}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="22" y="5" width="50" height="15" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Antonio" isBold="true" size="9"/>
+				</textElement>
+				<text><![CDATA[Overview]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="25" width="175" height="46" forecolor="#dadee6" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="7" y="34" width="7" height="7" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+				<imageExpression><![CDATA[$F{totalSavingIcon}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="22" y="33" width="50" height="19" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Antonio" isBold="true" size="7"/>
+				</textElement>
+				<text><![CDATA[Total savings]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="31" width="40" height="15" forecolor="#3e64b8" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalSaving}+" %"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="7" y="51" width="7" height="7" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+				<imageExpression><![CDATA[$F{bwChangeIcon}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="22" y="50" width="70" height="19" forecolor="#072b77" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Antonio" isBold="true" size="7"/>
+				</textElement>
+				<text><![CDATA[Number of BW changes]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="47" width="40" height="15" forecolor="#3e64b8" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bwChange}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

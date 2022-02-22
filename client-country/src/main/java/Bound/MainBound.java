@@ -33,11 +33,8 @@ public class MainBound {
         ClassPathResource classPathResource = new ClassPathResource(systemPath + "Bound/MasterTable.jrxml");
         JasperReport masteTableReport = JasperCompileManager.compileReport(classPathResource.getInputStream());
 
-        classPathResource = new ClassPathResource(systemPath + "Bound/BoundSubreport.jrxml");
+        classPathResource = new ClassPathResource(systemPath + "Bound/boundSubreport.jrxml");
         JasperReport boundSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
-
-        classPathResource = new ClassPathResource(systemPath + "Bound/startToShiftSubreport.jrxml");
-        JasperReport startToShiftSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
 
         /* Create Items */
         BoundData boundData1 = new BoundData();
@@ -122,7 +119,6 @@ public class MainBound {
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("boundDataSource", boundDataSource);
         parameters.put("boundSubreport", boundSubreport);
-        parameters.put("startToShiftSubreport", startToShiftSubreport);
         URL headerIcon = MainBound.class.getClassLoader().getResource(File.separator+"icon" + File.separator+ "hourIcon.png");
         parameters.put("headerIcon", headerIcon);
 
