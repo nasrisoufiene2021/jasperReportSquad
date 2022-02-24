@@ -2,9 +2,25 @@
 <!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
 <!-- 2015-11-25T00:02:30 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="template_Table" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1a0aa80b-dc07-4dca-bdbc-aa78eeb0d12b">
+    <style name="TableHeader" vAlign="Middle" hAlign="Center" isBold="true"/>
+    <style name="TableCell" hAlign="Center" vAlign="Middle"/>
+    <style name="TableFooter" hAlign="Right" vAlign="Middle"/>
+    <style name="Table">
+        <box>
+            <pen lineWidth="0.5"/>
+        </box>
+    </style>
+    <subDataset name="dataset1">
+        <field name="bound" class="java.lang.String"/>
+    </subDataset>
+
+
     <parameter name="overviewSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
+    <parameter name="overviewCiiRankSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
     <parameter name="overviewDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
-    <parameter name="hourIcon" class="java.net.URL"/>
+    <parameter name="overviewCiiRankDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
+    <parameter name="timeWindowSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
+    <parameter name="timeWindowDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
     <queryString>
         <![CDATA[]]>
     </queryString>
@@ -12,13 +28,19 @@
         <band splitType="Stretch"/>
     </background>
     <columnHeader>
+        <band height="20" splitType="Stretch">
+        <staticText>
+            <reportElement x="0" y="0" width="60" height="20" style="TableHeader"/>
+            <text><![CDATA[sdgdgsdgsgsdg]]></text>
+        </staticText>
+        </band>
     </columnHeader>
     <detail>
-        <band height="40" splitType="Stretch">
+        <band height="353" splitType="Stretch">
             <subreport>
-                <reportElement x="0" y="0" width="300" height="20" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
-                <dataSourceExpression><![CDATA[$P{overviewDataSource}]]></dataSourceExpression>
-                <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{overviewSubreport}]]></subreportExpression>
+                <reportElement x="-20" y="190" width="545" height="98" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
+                <dataSourceExpression><![CDATA[$P{timeWindowDataSource}]]></dataSourceExpression>
+                <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{timeWindowSubreport}]]></subreportExpression>
             </subreport>
         </band>
     </detail>

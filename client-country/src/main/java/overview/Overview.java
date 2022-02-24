@@ -14,6 +14,13 @@ public class Overview {
     private String vessel;
     private Integer totalEmission;
     private String rotationDuration;
+    private Integer otherRotationDuration;
+    private String frequence;
+    private Integer vessels;
+    private Integer portOfCall;
+    private Integer cmaCgm;
+    private Integer vesselClass;
+    private String serviceType;
 
     public Float getTotalSaving() {
         return totalSaving;
@@ -101,5 +108,61 @@ public class Overview {
 
     public void setRotationDuration(String rotationDuration) {
         this.rotationDuration = rotationDuration;
+    }
+
+    public Integer getOtherRotationDuration() {
+        return otherRotationDuration;
+    }
+
+    public void setOtherRotationDuration(Integer otherRotationDuration) {
+        this.otherRotationDuration = otherRotationDuration;
+    }
+
+    public String getFrequence() {
+        return frequence;
+    }
+
+    public void setFrequence(String frequence) {
+        this.frequence = frequence;
+    }
+
+    public Integer getVessels() {
+        return vessels;
+    }
+
+    public void setVessels(Integer vessels) {
+        this.vessels = vessels;
+    }
+
+    public Integer getPortOfCall() {
+        return portOfCall;
+    }
+
+    public void setPortOfCall(Integer portOfCall) {
+        this.portOfCall = portOfCall;
+    }
+
+    public Integer getCmaCgm() {
+        return cmaCgm;
+    }
+
+    public void setCmaCgm(Integer cmaCgm) {
+        this.cmaCgm = cmaCgm;
+    }
+
+    public Integer getVesselClass() {
+        return vesselClass;
+    }
+
+    public void setVesselClass(Integer vesselClass) {
+        this.vesselClass = vesselClass;
+    }
+
+    public String getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
     }
 }

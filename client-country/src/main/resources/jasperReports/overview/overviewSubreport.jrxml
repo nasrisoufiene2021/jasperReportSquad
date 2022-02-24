@@ -13,6 +13,13 @@
 	<field name="vessel" class="java.lang.String"/>
 	<field name="totalEmission" class="java.lang.Integer"/>
 	<field name="rotationDuration" class="java.lang.String"/>
+	<field name="otherRotationDuration" class="java.lang.Integer"/>
+	<field name="frequence" class="java.lang.String"/>
+	<field name="vessels" class="java.lang.Integer"/>
+	<field name="portOfCall" class="java.lang.Integer"/>
+	<field name="cmaCgm" class="java.lang.Integer"/>
+	<field name="vesselClass" class="java.lang.Integer"/>
+	<field name="serviceType" class="java.lang.String"/>
 	<columnHeader>
 	</columnHeader>
 	<detail>
@@ -179,6 +186,117 @@
 					<pen lineWidth="0.1"/>
 				</graphicElement>
 			</rectangle>
+			<staticText>
+				<reportElement x="382" y="15" width="70" height="8" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<text><![CDATA[Rotation duration:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="15" width="30" height="8" forecolor="#04246a" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{otherRotationDuration}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="470" y="15" width="30" height="8" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<text><![CDATA[Frequence:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="510" y="15" width="30" height="8" forecolor="#04246a" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{frequence}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="382" y="25" width="70" height="8" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<text><![CDATA[Vessels:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="25" width="30" height="8" forecolor="#04246a" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vessels}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="470" y="25" width="40" height="8" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<text><![CDATA[Ports of calls:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="510" y="25" width="20" height="8" forecolor="#04246a" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{portOfCall}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="382" y="35" width="70" height="8" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<text><![CDATA[CMA CGM:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="35" width="30" height="8" forecolor="#04246a" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cmaCgm}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="470" y="35" width="40" height="8" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<text><![CDATA[Vessels class:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="510" y="35" width="20" height="8" forecolor="#04246a" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vesselClass}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="382" y="45" width="70" height="8" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<text><![CDATA[Service type:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="430" y="45" width="30" height="8" forecolor="#04246a" uuid="341e7faf-9680-4941-a9a4-ac78b8f4aae0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Roboto" size="5.5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{serviceType}]]></textFieldExpression>
+			</textField>
 
 		</band>
 	</detail>

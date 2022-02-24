@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="client-list" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d5dce555-6fb2-412a-8421-3460f95acb03">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<field name="baselineRank" class="java.lang.String"/>
+	<field name="optimizedRank" class="java.lang.String"/>
+	<field name="baselinePercentage" class="java.lang.Integer"/>
+	<field name="optimizedPercentage" class="java.lang.Integer"/>
+	<field name="baselineColor" class="java.lang.String"/>
+	<field name="optimizedColor" class="java.lang.String"/>
+	<field name="triangleIcon" class="java.net.URL"/>
+	<columnHeader>
+	</columnHeader>
+	<detail>
+		<band height="98" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="545" height="98" forecolor="#dadee6" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="11" y="13" width="30" height="30" forecolor="#E3DA19" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+					<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{baselineColor}
+					</propertyExpression>
+					<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{baselineColor}
+					</propertyExpression>
+					<printWhenExpression><![CDATA[$F{baselineRank} != ""]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="21" y="19" width="21" height="20" forecolor="#FFFFFF"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc"/>
+				<textElement>
+					<font size="16" fontName="Roboto" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{baselineRank}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="49" y="22" width="130" height="15" forecolor="#04246a" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Your baseline ranking was]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="181" y="22" width="21" height="15" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc"/>
+				<textElement>
+					<font size="11" fontName="Roboto" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{baselineRank}]]></textFieldExpression>
+			</textField>
+
+
+
+
+
+			<rectangle>
+				<reportElement x="11" y="55" width="30" height="30" forecolor="#E3DA19" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+					<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{optimizedColor}
+					</propertyExpression>
+					<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{optimizedColor}
+					</propertyExpression>
+					<printWhenExpression><![CDATA[$F{baselineRank} != ""]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="21" y="61" width="21" height="20" forecolor="#FFFFFF"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc"/>
+				<textElement>
+					<font size="16" fontName="Roboto" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{optimizedRank}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="49" y="64" width="127" height="15" forecolor="#04246a" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement>
+					<font fontName="Roboto" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Your optimized ranking is]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="179" y="64" width="21" height="15" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc"/>
+				<textElement>
+					<font size="11" fontName="Roboto" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{optimizedRank}]]></textFieldExpression>
+			</textField>
+
+
+
+			<textField>
+				<reportElement x="430" y="11" width="21" height="9" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc"/>
+				<textElement>
+					<font size="7" fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{baselinePercentage}+"%"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="432" y="21" width="8" height="4" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+				<imageExpression><![CDATA[$F{triangleIcon}]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="312" y="26" width="45" height="9" forecolor="#097e42" backcolor="#097e42" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="357" y="26" width="45" height="9" forecolor="#98bf30" backcolor="#98bf30" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="402" y="26" width="45" height="9" forecolor="#eee522" backcolor="#eee522" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="447" y="26" width="45" height="9" forecolor="#f6b01f" backcolor="#f6b01f" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="492" y="26" width="45" height="9" forecolor="#e51829" backcolor="#e51829" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+
+
+
+
+			<textField>
+				<reportElement x="430" y="55" width="21" height="9" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc"/>
+				<textElement>
+					<font size="7" fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{baselinePercentage}+"%"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="432" y="65" width="8" height="4" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+				<imageExpression><![CDATA[$F{triangleIcon}]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="312" y="70" width="45" height="9" forecolor="#097e42" backcolor="#097e42" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="357" y="70" width="45" height="9" forecolor="#98bf30" backcolor="#98bf30" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="402" y="70" width="45" height="9" forecolor="#eee522" backcolor="#eee522" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="447" y="70" width="45" height="9" forecolor="#f6b01f" backcolor="#f6b01f" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="492" y="70" width="45" height="9" forecolor="#e51829" backcolor="#e51829" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+
+
+		</band>
+	</detail>
+</jasperReport>

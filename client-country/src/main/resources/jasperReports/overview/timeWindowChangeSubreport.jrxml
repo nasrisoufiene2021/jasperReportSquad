@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="client-list" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d5dce555-6fb2-412a-8421-3460f95acb03">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#FA1442">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#EDFA34">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#2020F5">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="TableHeader" mode="Opaque" backcolor="#2d75ff">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="cell1" mode="Opaque" backcolor="#e5e9f0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="cell2" mode="Opaque" backcolor="#fffffff">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="cell3" mode="Opaque" backcolor="#fffffff">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="cell4" mode="Opaque" backcolor="#fffffff">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.0" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataset1">
+		<field name="bound" class="java.lang.String"/>
+		<field name="port" class="java.lang.String"/>
+		<field name="blBerthRotationDay" class="java.lang.String"/>
+		<field name="blBerthRotationTime" class="java.lang.String"/>
+		<field name="lbUnberthRotationDay" class="java.lang.String"/>
+		<field name="blUnberthRotationTime" class="java.lang.String"/>
+		<field name="optBerthRotationDay" class="java.lang.String"/>
+		<field name="optBerthRotationTime" class="java.lang.String"/>
+		<field name="optUnberthRotationDay" class="java.lang.String"/>
+		<field name="optUnberthRotationTime" class="java.lang.String"/>
+	</subDataset>
+	<field name="timeWindowChangeList" class="java.util.List" />
+	<field name="baselineIcon" class="java.net.URL"/>
+	<field name="optimizedIcon" class="java.net.URL"/>
+	<columnHeader>
+		<band height="48">
+			<rectangle>
+				<reportElement x="142" y="0" width="208" height="24" forecolor="#979797" backcolor="#e5e9f0" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="216" y="2" width="60" height="20" forecolor="#04246a" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BASELINE]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="350" y="0" width="208" height="24" forecolor="#979797" backcolor="#e5e9f0" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="423" y="2" width="60" height="20" forecolor="#04246a" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OPTIMIZED]]></text>
+			</staticText>
+
+
+			<rectangle>
+				<reportElement x="142" y="24" width="104" height="24" forecolor="#979797" backcolor="#e5e9f0" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="164" y="26" width="60" height="20" forecolor="#04246a" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9"/>
+				</textElement>
+				<text><![CDATA[Berth]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="246" y="24" width="104" height="24" forecolor="#979797" backcolor="#e5e9f0" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="268" y="26" width="60" height="20" forecolor="#04246a" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9"/>
+				</textElement>
+				<text><![CDATA[Unberth]]></text>
+			</staticText>
+
+
+			<rectangle>
+				<reportElement x="350" y="24" width="104" height="24" forecolor="#979797" backcolor="#e5e9f0" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="372" y="26" width="60" height="20" forecolor="#04246a" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9"/>
+				</textElement>
+				<text><![CDATA[Berth]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="454" y="24" width="104" height="24" forecolor="#979797" backcolor="#e5e9f0" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="476" y="26" width="60" height="20" forecolor="#04246a" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="9"/>
+				</textElement>
+				<text><![CDATA[Unberth]]></text>
+			</staticText>
+
+
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="250">
+			<componentElement>
+				<reportElement x="17" y="0" width="381" height="201" uuid="751b639d-8056-4414-ae6b-7dfcfe30f0fc">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+				</reportElement>
+				<c:table xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components"
+						 xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components
+                    http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dataset1">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{timeWindowChangeList})]]></dataSourceExpression>
+					</datasetRun>
+					<c:column width="41">
+						<c:columnHeader height="24" style="TableHeader">
+							<staticText>
+								<reportElement x="0" y="0" width="41" height="24" forecolor="#ffffff"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Roboto" size="9" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Bound]]></text>
+							</staticText>
+						</c:columnHeader>
+						<c:detailCell height="24" >
+							<box>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textField>
+								<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="41" height="24" forecolor="#04246a" style="cell1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Roboto" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{bound}]]></textFieldExpression>
+							</textField>
+						</c:detailCell>
+					</c:column>
+					<c:column width="84">
+						<c:columnHeader height="24" style="TableHeader">
+							<staticText>
+								<reportElement x="0" y="0" width="84" height="24" forecolor="#ffffff"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Roboto" size="9" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Port]]></text>
+							</staticText>
+						</c:columnHeader>
+						<c:detailCell height="24">
+							<box>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textField>
+								<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="84" height="24" forecolor="#04246a" style="cell2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Roboto" size="9"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{port}]]></textFieldExpression>
+							</textField>
+						</c:detailCell>
+					</c:column>
+
+
+
+					<c:column width="104">
+						<c:columnHeader height="24" style="TableHeader">
+							<staticText>
+								<reportElement x="0" y="0" width="84" height="24" forecolor="#ffffff"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Roboto" size="9" isBold="true"/>
+								</textElement>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</c:columnHeader>
+						<c:detailCell height="24">
+							<box>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textField>
+								<reportElement style="cell3" stretchType="RelativeToTallestObject" x="0" y="0" width="104" height="12" forecolor="#04246a"/>
+								<textElement textAlignment="Center" verticalAlignment="Bottom">
+									<font fontName="Roboto" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{blBerthRotationDay}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement style="cell4" stretchType="RelativeToTallestObject" x="0" y="12" width="104" height="12" forecolor="#04246a"/>
+								<textElement textAlignment="Center" verticalAlignment="Top">
+									<font fontName="Roboto" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{blBerthRotationTime}]]></textFieldExpression>
+							</textField>
+						</c:detailCell>
+					</c:column>
+
+
+					<c:column width="104">
+						<c:columnHeader height="24" style="TableHeader">
+							<staticText>
+								<reportElement x="0" y="0" width="84" height="24" forecolor="#ffffff"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Roboto" size="9" isBold="true"/>
+								</textElement>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</c:columnHeader>
+						<c:detailCell height="24">
+							<box>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textField>
+								<reportElement style="cell3" stretchType="RelativeToTallestObject" x="0" y="0" width="104" height="12" forecolor="#04246a"/>
+								<textElement textAlignment="Center" verticalAlignment="Bottom">
+									<font fontName="Roboto" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{lbUnberthRotationDay}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement style="cell4" stretchType="RelativeToTallestObject" x="0" y="12" width="104" height="12" forecolor="#04246a"/>
+								<textElement textAlignment="Center" verticalAlignment="Top">
+									<font fontName="Roboto" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{blUnberthRotationTime}]]></textFieldExpression>
+							</textField>
+						</c:detailCell>
+					</c:column>
+
+
+
+					<c:column width="104">
+						<c:columnHeader height="24" style="TableHeader">
+							<staticText>
+								<reportElement x="0" y="0" width="84" height="24" forecolor="#ffffff"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Roboto" size="9" isBold="true"/>
+								</textElement>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</c:columnHeader>
+						<c:detailCell height="24">
+							<box>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textField>
+								<reportElement style="cell3" stretchType="RelativeToTallestObject" x="0" y="0" width="104" height="12" forecolor="#04246a"/>
+								<textElement textAlignment="Center" verticalAlignment="Bottom">
+									<font fontName="Roboto" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{optBerthRotationDay}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement style="cell4" stretchType="RelativeToTallestObject" x="0" y="12" width="104" height="12" forecolor="#04246a"/>
+								<textElement textAlignment="Center" verticalAlignment="Top">
+									<font fontName="Roboto" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{optBerthRotationTime}]]></textFieldExpression>
+							</textField>
+						</c:detailCell>
+					</c:column>
+
+
+					<c:column width="104">
+						<c:columnHeader height="24" style="TableHeader">
+							<staticText>
+								<reportElement x="0" y="0" width="84" height="24" forecolor="#ffffff"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Roboto" size="9" isBold="true"/>
+								</textElement>
+								<text><![CDATA[]]></text>
+							</staticText>
+						</c:columnHeader>
+						<c:detailCell height="24">
+							<box>
+								<bottomPen lineWidth="0.5"/>
+							</box>
+							<textField>
+								<reportElement style="cell3" stretchType="RelativeToTallestObject" x="0" y="0" width="104" height="12" forecolor="#04246a"/>
+								<textElement textAlignment="Center" verticalAlignment="Bottom">
+									<font fontName="Roboto" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{optUnberthRotationDay}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement style="cell4" stretchType="RelativeToTallestObject" x="0" y="12" width="104" height="12" forecolor="#04246a"/>
+								<textElement textAlignment="Center" verticalAlignment="Top">
+									<font fontName="Roboto" size="6"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{optUnberthRotationTime}]]></textFieldExpression>
+							</textField>
+						</c:detailCell>
+					</c:column>
+
+
+				</c:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

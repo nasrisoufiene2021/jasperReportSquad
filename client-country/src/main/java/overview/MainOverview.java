@@ -41,9 +41,78 @@ public class MainOverview {
         parameters.put("overviewDataSource", overviewDataSource);
         parameters.put("overviewSubreport", overviewSubreport);
 
+        prepareOverviewCiiRankSUbreport(parameters);
+        prepareTimeWindowChangeSubreport(parameters);
+
         String fileName = "C:\\Temp\\noa-final.pdf";
         JasperPrint jasperPrint = JasperFillManager.fillReport(masteTableReport, parameters, new JREmptyDataSource());
         JasperExportManager.exportReportToPdfStream(jasperPrint, new FileOutputStream(fileName));
+    }
+
+    private static void prepareOverviewCiiRankSUbreport(Map<String, Object> parameters) throws IOException, JRException {
+        String systemPath = "jasperReports" + File.separator;
+        ClassPathResource classPathResource = new ClassPathResource(systemPath + "overview/overviewCiiRankSubreport.jrxml");
+        JasperReport overviewCiiRankSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
+
+        JRBeanCollectionDataSource overviewCiiRankDataSource = new JRBeanCollectionDataSource(exctractOverviewCiiRankDataSource());
+        parameters.put("overviewCiiRankDataSource", overviewCiiRankDataSource);
+        parameters.put("overviewCiiRankSubreport", overviewCiiRankSubreport);
+    }
+
+    private static void prepareTimeWindowChangeSubreport(Map<String, Object> parameters) throws IOException, JRException {
+        String systemPath = "jasperReports" + File.separator;
+        ClassPathResource classPathResource = new ClassPathResource(systemPath + "overview/timeWindowChangeSubreport.jrxml");
+        JasperReport timeWindowSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
+
+        JRBeanCollectionDataSource timeWindowDataSource = new JRBeanCollectionDataSource(exctractTimeWindowDataSource());
+        parameters.put("timeWindowDataSource", timeWindowDataSource);
+        parameters.put("timeWindowSubreport", timeWindowSubreport);
+    }
+
+    public static List<TimeWindowChangeList> exctractTimeWindowDataSource(){
+
+        List<TimeWindowChange> timeWindowChangeList = new ArrayList<>();
+
+        for(int i = 0; i<70; i++){
+            TimeWindowChange timeWindowChange = new TimeWindowChange();
+            timeWindowChange.setBound("B");
+            timeWindowChange.setPort("HKHKG");
+            timeWindowChange.setBlBerthRotationDay("D003");
+            timeWindowChange.setBlBerthRotationTime("Sar 04:00");
+            timeWindowChange.setLbUnberthRotationDay("D004");
+            timeWindowChange.setBlUnberthRotationTime("Mon 18:20");
+            timeWindowChange.setOptBerthRotationDay("D-01");
+            timeWindowChange.setOptBerthRotationTime("Wen 04:00");
+            timeWindowChange.setOptUnberthRotationDay("D002");
+            timeWindowChange.setOptUnberthRotationTime("Fri 22:00");
+            timeWindowChangeList.add(timeWindowChange);
+        }
+        TimeWindowChangeList timeWindowChangeList1 = new TimeWindowChangeList();
+        timeWindowChangeList1.setTimeWindowChangeList(timeWindowChangeList);
+
+        timeWindowChangeList1.setBaselineIcon(loadIcon("baselineIcon.png"));
+        timeWindowChangeList1.setOptimizedIcon(loadIcon("optimizedIcon.png"));
+
+
+        List<TimeWindowChangeList> timeWindowChangeListList = new ArrayList<>();
+        timeWindowChangeListList.add(timeWindowChangeList1);
+
+
+        return timeWindowChangeListList;
+    }
+
+    public static List<OverviewCiiRank> exctractOverviewCiiRankDataSource(){
+        List<OverviewCiiRank> overviewCiiRankList = new ArrayList<>();
+        OverviewCiiRank overviewCiiRank = new OverviewCiiRank();
+        overviewCiiRank.setBaselineRank("C");
+        overviewCiiRank.setOptimizedRank("B");
+        overviewCiiRank.setBaselinePercentage(78);
+        overviewCiiRank.setOptimizedPercentage(50);
+        overviewCiiRank.setBaselineColor("#98bf30");
+        overviewCiiRank.setOptimizedColor("#eee522");
+        overviewCiiRank.setTriangleIcon(loadIcon("triangleIcon.png"));
+        overviewCiiRankList.add(overviewCiiRank);
+        return overviewCiiRankList;
     }
 
     private static List<Overview> exctractOverviewDataSource(){
@@ -54,6 +123,13 @@ public class MainOverview {
         overview.setVessel("BUXCLIFF");
         overview.setTotalEmission(2145214);
         overview.setRotationDuration("Curent - 7 days");
+        overview.setOtherRotationDuration(42);
+        overview.setFrequence("weekly");
+        overview.setVessels(6);
+        overview.setPortOfCall(10);
+        overview.setCmaCgm(6);
+        overview.setVesselClass(5100);
+        overview.setServiceType("OA-EW");
         loadIcons(overview);
         listOverview.add(overview);
         return listOverview;
@@ -79,4 +155,8 @@ public class MainOverview {
         overview.setRotationIcon(icon);
     }
 
+    public static URL loadIcon(String iconName){
+        String iconPath = "icon" + File.separator;
+        return MainOverview.class.getClassLoader().getResource( iconPath + iconName);
+    }
 }
