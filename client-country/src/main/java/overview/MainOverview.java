@@ -43,11 +43,38 @@ public class MainOverview {
 
         prepareOverviewCiiRankSUbreport(parameters);
         prepareTimeWindowChangeSubreport(parameters);
+        preparePieBunkerConsoSubreport(parameters);
+        prepareFuelConsoSubreport(parameters);
+
 
         String fileName = "C:\\Temp\\noa-final.pdf";
         JasperPrint jasperPrint = JasperFillManager.fillReport(masteTableReport, parameters, new JREmptyDataSource());
+        printUUID(jasperPrint);
         JasperExportManager.exportReportToPdfStream(jasperPrint, new FileOutputStream(fileName));
     }
+
+    private static void preparePieBunkerConsoSubreport(Map<String, Object> parameters) throws IOException, JRException {
+        String systemPath = "jasperReports" + File.separator;
+        ClassPathResource classPathResource = new ClassPathResource(systemPath + "overview/pieBunkerConsoSubreport.jrxml");
+        JasperReport pieBunkerConsoSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
+
+        PieFuelConsoList pieFuelConsoList = new PieFuelConsoList();
+        ArrayList<PieFuelConso> dataList = pieFuelConsoList.getDataBeanList();
+        JRBeanCollectionDataSource pieBunkerConsoDataSource = new JRBeanCollectionDataSource(dataList);
+
+        parameters.put("pieBunkerConsoDataSource", pieBunkerConsoDataSource);
+        parameters.put("pieBunkerConsoSubreport", pieBunkerConsoSubreport);
+    }
+
+    private static void prepareFuelConsoSubreport(Map<String, Object> parameters) throws IOException, JRException {
+        String systemPath = "jasperReports" + File.separator;
+        ClassPathResource classPathResource = new ClassPathResource(systemPath + "overview/fuelConsoSubreport.jrxml");
+        JasperReport fuelConsoSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
+
+        parameters.put("fuelConsoDataSource", new JRBeanCollectionDataSource(FuelConsoManager.extractFuelConso()));
+        parameters.put("fuelConsoSubreport", fuelConsoSubreport);
+    }
+
 
     private static void prepareOverviewCiiRankSUbreport(Map<String, Object> parameters) throws IOException, JRException {
         String systemPath = "jasperReports" + File.separator;
@@ -75,6 +102,7 @@ public class MainOverview {
 
         for(int i = 0; i<70; i++){
             TimeWindowChange timeWindowChange = new TimeWindowChange();
+
             timeWindowChange.setBound("B");
             timeWindowChange.setPort("HKHKG");
             timeWindowChange.setBlBerthRotationDay("D003");
@@ -85,20 +113,23 @@ public class MainOverview {
             timeWindowChange.setOptBerthRotationTime("Wen 04:00");
             timeWindowChange.setOptUnberthRotationDay("D002");
             timeWindowChange.setOptUnberthRotationTime("Fri 22:00");
+
+            timeWindowChange.setOptBerthBackColor("#d5f6eb");
+            timeWindowChange.setOptBerthForeColor("#327864");
+
+            timeWindowChange.setOptUnberthBackColor("#fff0db");
+            timeWindowChange.setOptUnberthForeColor("#d2740f");
+
             timeWindowChangeList.add(timeWindowChange);
         }
-        TimeWindowChangeList timeWindowChangeList1 = new TimeWindowChangeList();
-        timeWindowChangeList1.setTimeWindowChangeList(timeWindowChangeList);
 
-        timeWindowChangeList1.setBaselineIcon(loadIcon("baselineIcon.png"));
-        timeWindowChangeList1.setOptimizedIcon(loadIcon("optimizedIcon.png"));
+        TimeWindowChangeList itemList = new TimeWindowChangeList();
+        itemList.setTimeWindowChangeList(timeWindowChangeList);
 
+        List<TimeWindowChangeList> dataSourcetList = new ArrayList<>();
+        dataSourcetList.add(itemList);
 
-        List<TimeWindowChangeList> timeWindowChangeListList = new ArrayList<>();
-        timeWindowChangeListList.add(timeWindowChangeList1);
-
-
-        return timeWindowChangeListList;
+        return dataSourcetList;
     }
 
     public static List<OverviewCiiRank> exctractOverviewCiiRankDataSource(){
@@ -158,5 +189,13 @@ public class MainOverview {
     public static URL loadIcon(String iconName){
         String iconPath = "icon" + File.separator;
         return MainOverview.class.getClassLoader().getResource( iconPath + iconName);
+    }
+
+    public static void printUUID(JasperPrint jasperPrint){
+        for(JRPrintPage page :  jasperPrint.getPages()){
+            for(JRPrintElement element : page.getElements()){
+                System.out.println("==> "+element.getUUID());
+            }
+        }
     }
 }

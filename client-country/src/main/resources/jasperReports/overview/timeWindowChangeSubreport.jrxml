@@ -2,76 +2,49 @@
 <!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="client-list" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d5dce555-6fb2-412a-8421-3460f95acb03">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-	<style name="Table_TH" mode="Opaque" backcolor="#FA1442">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="Table_CH" mode="Opaque" backcolor="#EDFA34">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
-	<style name="Table_TD" mode="Opaque" backcolor="#2020F5">
-		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
-		</box>
-	</style>
 	<style name="TableHeader" mode="Opaque" backcolor="#2d75ff">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#979797"/>
+			<topPen lineWidth="0.5" lineColor="#979797"/>
+			<leftPen lineWidth="0.5" lineColor="#979797"/>
+			<bottomPen lineWidth="0.5" lineColor="#979797"/>
+			<rightPen lineWidth="0.5" lineColor="#979797"/>
 		</box>
 	</style>
 	<style name="cell1" mode="Opaque" backcolor="#e5e9f0">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#979797"/>
+			<topPen lineWidth="0.5" lineColor="#979797"/>
+			<leftPen lineWidth="0.5" lineColor="#979797"/>
+			<bottomPen lineWidth="0.5" lineColor="#979797"/>
+			<rightPen lineWidth="0.5" lineColor="#979797"/>
 		</box>
 	</style>
 	<style name="cell2" mode="Opaque" backcolor="#fffffff">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#979797"/>
+			<topPen lineWidth="0.5" lineColor="#979797"/>
+			<leftPen lineWidth="0.5" lineColor="#979797"/>
+			<bottomPen lineWidth="0.5" lineColor="#979797"/>
+			<rightPen lineWidth="0.5" lineColor="#979797"/>
 		</box>
 	</style>
 	<style name="cell3" mode="Opaque" backcolor="#fffffff">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.5" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.0" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#979797"/>
+			<topPen lineWidth="0.5" lineColor="#979797"/>
+			<leftPen lineWidth="0.5" lineColor="#979797"/>
+			<bottomPen lineWidth="0.0" lineColor="#979797"/>
+			<rightPen lineWidth="0.5" lineColor="#979797"/>
 		</box>
 	</style>
 	<style name="cell4" mode="Opaque" backcolor="#fffffff">
 		<box>
-			<pen lineWidth="0.5" lineColor="#000000"/>
-			<topPen lineWidth="0.0" lineColor="#000000"/>
-			<leftPen lineWidth="0.5" lineColor="#000000"/>
-			<bottomPen lineWidth="0.5" lineColor="#000000"/>
-			<rightPen lineWidth="0.5" lineColor="#000000"/>
+			<pen lineWidth="0.5" lineColor="#979797"/>
+			<topPen lineWidth="0.0" lineColor="#979797"/>
+			<leftPen lineWidth="0.5" lineColor="#979797"/>
+			<bottomPen lineWidth="0.5" lineColor="#979797"/>
+			<rightPen lineWidth="0.5" lineColor="#979797"/>
 		</box>
 	</style>
 	<subDataset name="dataset1">
@@ -85,10 +58,12 @@
 		<field name="optBerthRotationTime" class="java.lang.String"/>
 		<field name="optUnberthRotationDay" class="java.lang.String"/>
 		<field name="optUnberthRotationTime" class="java.lang.String"/>
+		<field name="optBerthBackColor" class="java.lang.String"/>
+		<field name="optBerthForeColor" class="java.lang.String"/>
+		<field name="optUnberthForeColor" class="java.lang.String"/>
+		<field name="optUnberthBackColor" class="java.lang.String"/>
 	</subDataset>
 	<field name="timeWindowChangeList" class="java.util.List" />
-	<field name="baselineIcon" class="java.net.URL"/>
-	<field name="optimizedIcon" class="java.net.URL"/>
 	<columnHeader>
 		<band height="48">
 			<rectangle>
@@ -332,14 +307,20 @@
 								<bottomPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement style="cell3" stretchType="RelativeToTallestObject" x="0" y="0" width="104" height="12" forecolor="#04246a"/>
+								<reportElement style="cell3" stretchType="RelativeToTallestObject" x="0" y="0" width="104" height="12" forecolor="#04246a">
+									<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{optBerthForeColor}</propertyExpression>
+									<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{optBerthBackColor}</propertyExpression>
+								</reportElement>
 								<textElement textAlignment="Center" verticalAlignment="Bottom">
 									<font fontName="Roboto" size="6"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{optBerthRotationDay}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement style="cell4" stretchType="RelativeToTallestObject" x="0" y="12" width="104" height="12" forecolor="#04246a"/>
+								<reportElement style="cell4" stretchType="RelativeToTallestObject" x="0" y="12" width="104" height="12" forecolor="#04246a">
+									<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{optBerthForeColor}</propertyExpression>
+									<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{optBerthBackColor}</propertyExpression>
+								</reportElement>
 								<textElement textAlignment="Center" verticalAlignment="Top">
 									<font fontName="Roboto" size="6"/>
 								</textElement>
@@ -364,14 +345,20 @@
 								<bottomPen lineWidth="0.5"/>
 							</box>
 							<textField>
-								<reportElement style="cell3" stretchType="RelativeToTallestObject" x="0" y="0" width="104" height="12" forecolor="#04246a"/>
+								<reportElement style="cell3" stretchType="RelativeToTallestObject" x="0" y="0" width="104" height="12" forecolor="#04246a">
+									<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{optUnberthForeColor}</propertyExpression>
+									<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{optUnberthBackColor}</propertyExpression>
+								</reportElement>
 								<textElement textAlignment="Center" verticalAlignment="Bottom">
 									<font fontName="Roboto" size="6"/>
 								</textElement>
 								<textFieldExpression><![CDATA[$F{optUnberthRotationDay}]]></textFieldExpression>
 							</textField>
 							<textField>
-								<reportElement style="cell4" stretchType="RelativeToTallestObject" x="0" y="12" width="104" height="12" forecolor="#04246a"/>
+								<reportElement style="cell4" stretchType="RelativeToTallestObject" x="0" y="12" width="104" height="12" forecolor="#04246a">
+									<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{optUnberthForeColor}</propertyExpression>
+									<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{optUnberthBackColor}</propertyExpression>
+							</reportElement>
 								<textElement textAlignment="Center" verticalAlignment="Top">
 									<font fontName="Roboto" size="6"/>
 								</textElement>

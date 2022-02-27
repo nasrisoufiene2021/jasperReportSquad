@@ -19,28 +19,39 @@
     <parameter name="overviewCiiRankSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
     <parameter name="overviewDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
     <parameter name="overviewCiiRankDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
-    <parameter name="timeWindowSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
-    <parameter name="timeWindowDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
-    <queryString>
-        <![CDATA[]]>
-    </queryString>
+    <parameter name="pieBunkerConsoSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
+    <parameter name="pieBunkerConsoDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
+
+    <parameter name="fuelConsoSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
+    <parameter name="fuelConsoDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
+
+
     <background>
         <band splitType="Stretch"/>
     </background>
     <columnHeader>
-        <band height="20" splitType="Stretch">
+        <band height="40" splitType="Stretch">
         <staticText>
-            <reportElement x="0" y="0" width="60" height="20" style="TableHeader"/>
+            <reportElement x="0" y="0" width="60" height="20" style="TableHeader" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
+            <text><![CDATA[sdgdgsdgsgsdg]]></text>
+        </staticText>
+        <staticText>
+            <reportElement x="0" y="20" width="60" height="20" style="TableHeader" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
             <text><![CDATA[sdgdgsdgsgsdg]]></text>
         </staticText>
         </band>
     </columnHeader>
     <detail>
-        <band height="353" splitType="Stretch">
+        <band height="540" splitType="Stretch">
             <subreport>
-                <reportElement x="-20" y="190" width="545" height="98" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
-                <dataSourceExpression><![CDATA[$P{timeWindowDataSource}]]></dataSourceExpression>
-                <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{timeWindowSubreport}]]></subreportExpression>
+                <reportElement x="-20" y="0" width="545" height="463" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
+                <dataSourceExpression><![CDATA[$P{pieBunkerConsoDataSource}]]></dataSourceExpression>
+                <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{pieBunkerConsoSubreport}]]></subreportExpression>
+            </subreport>
+            <subreport>
+                <reportElement x="-20" y="400" width="545" height="40" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
+                <dataSourceExpression><![CDATA[$P{fuelConsoDataSource}]]></dataSourceExpression>
+                <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{fuelConsoSubreport}]]></subreportExpression>
             </subreport>
         </band>
     </detail>

@@ -24,6 +24,32 @@
             <version>5.1.8.RELEASE</version>
         </dependency>
     </dependencies>
+    <build>
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+            <excludes>
+                <exclude>**/*.ttf</exclude>
+                <exclude>**/*.TTF</exclude>
+                <exclude>**/*.png</exclude>
+            </excludes>
+        </resource>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>false</filtering>
+            <includes>
+                <include>**/*.ttf</include>
+                <include>**/*.TTF</include>
+                <include>**/*.png</include>
+            </includes>
+        </resource>
+        <resource>
+            <directory>swagger</directory>
+            <filtering>false</filtering>
+        </resource>
+    </resources>
+    </build>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
