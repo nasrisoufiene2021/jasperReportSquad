@@ -22,24 +22,10 @@
     <parameter name="pieBunkerConsoSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
     <parameter name="pieBunkerConsoDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
 
-    <parameter name="fuelConsoSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
-    <parameter name="fuelConsoDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
-
-
     <background>
         <band splitType="Stretch"/>
     </background>
     <columnHeader>
-        <band height="40" splitType="Stretch">
-        <staticText>
-            <reportElement x="0" y="0" width="60" height="20" style="TableHeader" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
-            <text><![CDATA[sdgdgsdgsgsdg]]></text>
-        </staticText>
-        <staticText>
-            <reportElement x="0" y="20" width="60" height="20" style="TableHeader" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
-            <text><![CDATA[sdgdgsdgsgsdg]]></text>
-        </staticText>
-        </band>
     </columnHeader>
     <detail>
         <band height="540" splitType="Stretch">
@@ -47,11 +33,6 @@
                 <reportElement x="-20" y="0" width="545" height="463" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
                 <dataSourceExpression><![CDATA[$P{pieBunkerConsoDataSource}]]></dataSourceExpression>
                 <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{pieBunkerConsoSubreport}]]></subreportExpression>
-            </subreport>
-            <subreport>
-                <reportElement x="-20" y="400" width="545" height="40" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
-                <dataSourceExpression><![CDATA[$P{fuelConsoDataSource}]]></dataSourceExpression>
-                <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{fuelConsoSubreport}]]></subreportExpression>
             </subreport>
         </band>
     </detail>
