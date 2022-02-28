@@ -44,7 +44,7 @@ public class MainOverview {
         prepareOverviewCiiRankSUbreport(parameters);
         prepareTimeWindowChangeSubreport(parameters);
         preparePieBunkerConsoSubreport(parameters);
-        prepareFuelConsoSubreport(parameters);
+   //     prepareFuelConsoSubreport(parameters);
 
 
         String fileName = "C:\\Temp\\noa-final.pdf";
@@ -58,9 +58,8 @@ public class MainOverview {
         ClassPathResource classPathResource = new ClassPathResource(systemPath + "overview/pieBunkerConsoSubreport.jrxml");
         JasperReport pieBunkerConsoSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
 
-        PieFuelConsoList pieFuelConsoList = new PieFuelConsoList();
-        ArrayList<PieFuelConso> dataList = pieFuelConsoList.getDataBeanList();
-        JRBeanCollectionDataSource pieBunkerConsoDataSource = new JRBeanCollectionDataSource(dataList);
+        List<PieFuelConso> pieFuelConsoList = PieFuelConsoManager.extractFuelConso();
+        JRBeanCollectionDataSource pieBunkerConsoDataSource = new JRBeanCollectionDataSource(pieFuelConsoList);
 
         parameters.put("pieBunkerConsoDataSource", pieBunkerConsoDataSource);
         parameters.put("pieBunkerConsoSubreport", pieBunkerConsoSubreport);
@@ -71,7 +70,7 @@ public class MainOverview {
         ClassPathResource classPathResource = new ClassPathResource(systemPath + "overview/fuelConsoSubreport.jrxml");
         JasperReport fuelConsoSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
 
-        parameters.put("fuelConsoDataSource", new JRBeanCollectionDataSource(FuelConsoManager.extractFuelConso()));
+        parameters.put("fuelConsoDataSource", new JRBeanCollectionDataSource(PieFuelConsoManager.extractFuelConso()));
         parameters.put("fuelConsoSubreport", fuelConsoSubreport);
     }
 

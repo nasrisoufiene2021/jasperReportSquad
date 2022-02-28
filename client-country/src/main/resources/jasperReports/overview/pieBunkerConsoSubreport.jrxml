@@ -45,8 +45,13 @@
 	<field name = "optFuelConso8" class = "java.lang.Integer"/>
 	<field name = "fuelColor8" class = "java.lang.String"/>
 
+
+	<field name = "fuelConsoTotal" class = "java.lang.Integer"/>
+	<field name = "annualizedDiffTotal" class = "java.lang.Integer"/>
+	<field name = "diffCmaVessel" class = "java.lang.Integer"/>
+
 	<summary>
-		<band height = "560" splitType = "Stretch">
+		<band height = "750" splitType = "Stretch">
 			<image>
 				<reportElement x="4" y="4" width="20" height="28" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
 				<imageExpression><![CDATA["icon/bunkerConsoIcon.png"]]></imageExpression>
@@ -110,14 +115,14 @@
 				</pieDataset>
 				<piePlot>
 					<plot>
-						<seriesColor seriesOrder="0" color="#e2014b"/>
-						<seriesColor seriesOrder="1" color="#2863fd"/>
-						<seriesColor seriesOrder="2" color="#f7c731"/>
-						<seriesColor seriesOrder="3" color="#00865d"/>
+						<seriesColor seriesOrder="0" color="#04246a"/>
+						<seriesColor seriesOrder="1" color="#235af6"/>
+						<seriesColor seriesOrder="2" color="#fabf40"/>
+						<seriesColor seriesOrder="3" color="#8B3E9E"/>
 						<seriesColor seriesOrder="4" color="#3e64b8"/>
-						<seriesColor seriesOrder="5" color="#ff6c00"/>
-						<seriesColor seriesOrder="6" color="#04246a"/>
-						<seriesColor seriesOrder="7" color="#B32EAC"/>
+						<seriesColor seriesOrder="5" color="#e2014b"/>
+						<seriesColor seriesOrder="6" color="#00865d"/>
+						<seriesColor seriesOrder="7" color="#ff6c00"/>
 						<seriesColor seriesOrder="8" color="#A4EDA5"/>
 						<seriesColor seriesOrder="9" color="#51BACF"/>
 						<seriesColor seriesOrder="10" color="#EBCCA2"/>
@@ -141,9 +146,27 @@
 
 
 
+			<textField>
+				<reportElement x="217" y="222" width="160" height="36" forecolor="#ffffff"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				</reportElement>
+				<textElement verticalAlignment="Middle" textAlignment="Center">
+					<font size="20" fontName="Roboto" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fuelConsoTotal} + " t"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="247" y="250" width="100" height="36" forecolor="#ffffff" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement verticalAlignment="Middle" textAlignment="Center">
+					<font fontName="Roboto" isBold="true" size="20"/>
+				</textElement>
+				<text><![CDATA[per voyage]]></text>
+			</staticText>
+
+
 
 			<ellipse>
-				<reportElement x="0" y="407" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
+				<reportElement x="0" y="457" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
 					<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{fuelColor1}
 					</propertyExpression>
 					<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{fuelColor1}
@@ -152,7 +175,7 @@
 				</reportElement>
 			</ellipse>
 			<textField>
-				<reportElement x="10" y="400" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="10" y="450" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso1} > 0) || (($F{optFuelConso1}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -161,7 +184,7 @@
 				<textFieldExpression><![CDATA[$F{fuelName1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="420" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="0" y="470" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso1} > 0) || (($F{optFuelConso1}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -170,7 +193,7 @@
 				<textFieldExpression><![CDATA["B: " + $F{blFuelConso1} + " t"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="440" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="0" y="490" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso1} > 0) || (($F{optFuelConso1}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -183,7 +206,7 @@
 
 
 			<ellipse>
-				<reportElement x="72" y="407" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
+				<reportElement x="72" y="457" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
 					<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{fuelColor2}
 					</propertyExpression>
 					<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{fuelColor2}
@@ -192,7 +215,7 @@
 				</reportElement>
 			</ellipse>
 			<textField>
-				<reportElement x="82" y="400" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="82" y="450" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso2} > 0) || (($F{optFuelConso2}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -201,7 +224,7 @@
 				<textFieldExpression><![CDATA[$F{fuelName2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="72" y="420" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="72" y="470" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso2} > 0) || (($F{optFuelConso2}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -210,7 +233,7 @@
 				<textFieldExpression><![CDATA["B: " + $F{blFuelConso2} + " t"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="72" y="440" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="72" y="490" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso2} > 0) || (($F{optFuelConso2}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -222,7 +245,7 @@
 
 
 			<ellipse>
-				<reportElement x="144" y="407" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
+				<reportElement x="144" y="457" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
 					<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{fuelColor3}
 					</propertyExpression>
 					<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{fuelColor3}
@@ -231,7 +254,7 @@
 				</reportElement>
 			</ellipse>
 			<textField>
-				<reportElement x="154" y="400" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="154" y="450" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso3} > 0) || (($F{optFuelConso3}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -240,7 +263,7 @@
 				<textFieldExpression><![CDATA[$F{fuelName3}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="144" y="420" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="144" y="470" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso3} > 0) || (($F{optFuelConso3}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -249,7 +272,7 @@
 				<textFieldExpression><![CDATA["B: " + $F{blFuelConso3} + " t"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="144" y="440" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="144" y="490" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso3} > 0) || (($F{optFuelConso3}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -261,7 +284,7 @@
 
 
 			<ellipse>
-				<reportElement x="216" y="407" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
+				<reportElement x="216" y="457" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
 					<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{fuelColor4}
 					</propertyExpression>
 					<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{fuelColor4}
@@ -270,7 +293,7 @@
 				</reportElement>
 			</ellipse>
 			<textField>
-				<reportElement x="226" y="400" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="226" y="450" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso4} > 0) || (($F{optFuelConso4}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -279,7 +302,7 @@
 				<textFieldExpression><![CDATA[$F{fuelName4}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="216" y="420" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="216" y="470" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso4} > 0) || (($F{optFuelConso4}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -288,7 +311,7 @@
 				<textFieldExpression><![CDATA["B: " + $F{blFuelConso4} + " t"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="216" y="440" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="216" y="490" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso4} > 0) || (($F{optFuelConso4}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -301,7 +324,7 @@
 
 
 			<ellipse>
-				<reportElement x="288" y="407" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
+				<reportElement x="288" y="457" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
 					<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{fuelColor5}
 					</propertyExpression>
 					<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{fuelColor5}
@@ -310,7 +333,7 @@
 				</reportElement>
 			</ellipse>
 			<textField>
-				<reportElement x="298" y="400" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="298" y="450" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso5} > 0) || (($F{optFuelConso5}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -319,7 +342,7 @@
 				<textFieldExpression><![CDATA[$F{fuelName5}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="288" y="420" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="288" y="470" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso5} > 0) || (($F{optFuelConso5}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -328,7 +351,7 @@
 				<textFieldExpression><![CDATA["B: " + $F{blFuelConso5} + " t"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="288" y="440" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="288" y="490" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso5} > 0) || (($F{optFuelConso5}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -342,7 +365,7 @@
 
 
 			<ellipse>
-				<reportElement x="360" y="407" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
+				<reportElement x="360" y="457" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
 					<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{fuelColor6}
 					</propertyExpression>
 					<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{fuelColor6}
@@ -351,7 +374,7 @@
 				</reportElement>
 			</ellipse>
 			<textField>
-				<reportElement x="370" y="400" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="370" y="450" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso6} > 0) || (($F{optFuelConso6}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -360,7 +383,7 @@
 				<textFieldExpression><![CDATA[$F{fuelName6}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="360" y="420" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="360" y="470" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso6} > 0) || (($F{optFuelConso6}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -369,7 +392,7 @@
 				<textFieldExpression><![CDATA["B: " + $F{blFuelConso6} + " t"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="360" y="440" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="360" y="490" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso6} > 0) || (($F{optFuelConso6}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -382,7 +405,7 @@
 
 
 			<ellipse>
-				<reportElement x="432" y="407" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
+				<reportElement x="432" y="457" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
 					<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{fuelColor7}
 					</propertyExpression>
 					<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{fuelColor7}
@@ -391,7 +414,7 @@
 				</reportElement>
 			</ellipse>
 			<textField>
-				<reportElement x="442" y="400" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="442" y="450" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso7} > 0) || (($F{optFuelConso7}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -400,7 +423,7 @@
 				<textFieldExpression><![CDATA[$F{fuelName7}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="432" y="420" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="432" y="470" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso7} > 0) || (($F{optFuelConso7}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -409,7 +432,7 @@
 				<textFieldExpression><![CDATA["B: " + $F{blFuelConso7} + " t"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="432" y="440" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="432" y="490" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso7} > 0) || (($F{optFuelConso7}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -422,7 +445,7 @@
 
 
 			<ellipse>
-				<reportElement x="504" y="407" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
+				<reportElement x="504" y="457" width="6" height="6" forecolor="#e2014b" backcolor="#e2014b">
 					<propertyExpression name="net.sf.jasperreports.style.backcolor">$F{fuelColor8}
 					</propertyExpression>
 					<propertyExpression name="net.sf.jasperreports.style.forecolor">$F{fuelColor8}
@@ -431,7 +454,7 @@
 				</reportElement>
 			</ellipse>
 			<textField>
-				<reportElement x="514" y="400" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="514" y="450" width="60" height="20" forecolor="#6b7790"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso8} > 0) || (($F{optFuelConso8}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -440,7 +463,7 @@
 				<textFieldExpression><![CDATA[$F{fuelName8}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="504" y="420" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="504" y="470" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso8} > 0) || (($F{optFuelConso8}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -449,7 +472,7 @@
 				<textFieldExpression><![CDATA["B: " + $F{blFuelConso8} + " t"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="504" y="440" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				<reportElement x="504" y="490" width="60" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
 					<printWhenExpression><![CDATA[ ($F{blFuelConso8} > 0) || (($F{optFuelConso8}) > 0)]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Middle" textAlignment="Left">
@@ -459,6 +482,44 @@
 			</textField>
 
 
+
+
+
+
+			<staticText>
+				<reportElement x="79" y="650" width="163" height="19" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement verticalAlignment="Middle" textAlignment="Center">
+					<font fontName="Roboto" size="12"/>
+				</textElement>
+				<text><![CDATA[Annualized difference in total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="79" y="670" width="163" height="25" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				</reportElement>
+				<textElement verticalAlignment="Middle" textAlignment="Center">
+					<font size="16" fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{annualizedDiffTotal} + " t"]]> </textFieldExpression>
+			</textField>
+
+
+			<staticText>
+				<reportElement x="336" y="650" width="163" height="19" forecolor="#6b7790" uuid="0ba53b0e-adc7-4252-b7cd-2e850514dd01">
+				</reportElement>
+				<textElement verticalAlignment="Middle" textAlignment="Center">
+					<font fontName="Roboto" size="12"/>
+				</textElement>
+				<text><![CDATA[Difference in total for CMA vessels]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="336" y="670" width="163" height="25" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				</reportElement>
+				<textElement verticalAlignment="Middle" textAlignment="Center">
+					<font size="16" fontName="Roboto"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{diffCmaVessel} + " t"]]> </textFieldExpression>
+			</textField>
 
 		</band>
 	</summary>

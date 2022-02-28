@@ -1,6 +1,7 @@
 package overview;
 
-public class FuelConso {
+public class PieFuelConso {
+
     private String fuelName1;
     private Integer blFuelConso1;
     private Integer optFuelConso1;
@@ -40,6 +41,11 @@ public class FuelConso {
     private Integer blFuelConso8;
     private Integer optFuelConso8;
     private String fuelColor8;
+
+
+    private Integer fuelConsoTotal;
+    private Integer annualizedDiffTotal;
+    private Integer diffCmaVessel;
 
     public String getFuelName1() {
         return fuelName1;
@@ -295,5 +301,30 @@ public class FuelConso {
 
     public void setFuelColor8(String fuelColor8) {
         this.fuelColor8 = fuelColor8;
+    }
+
+
+    public Integer getFuelConsoTotal() {
+        return fuelConsoTotal;
+    }
+
+    public void setFuelConsoTotal(Integer fuelConsoTotal) {
+        this.fuelConsoTotal = fuelConsoTotal;
+    }
+
+    public Integer getAnnualizedDiffTotal() {
+        return annualizedDiffTotal;
+    }
+
+    public void setAnnualizedDiffTotal(Integer annualizedDiffTotal) {
+        this.annualizedDiffTotal = annualizedDiffTotal;
+    }
+
+    public Integer getDiffCmaVessel() {
+        return diffCmaVessel;
+    }
+
+    public void setDiffCmaVessel(Integer diffCmaVessel) {
+        this.diffCmaVessel = diffCmaVessel;
     }
 }
