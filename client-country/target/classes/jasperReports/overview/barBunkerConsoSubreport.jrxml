@@ -8,13 +8,13 @@
 	<field name = "portValue" class = "java.lang.Integer"/>
 
 	<summary>
-		<band height="600" splitType="Stretch">
+		<band height="650" splitType="Stretch">
 			<image>
-				<reportElement x="4" y="4" width="32" height="32" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+				<reportElement x="4" y="-40" width="32" height="32" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
 				<imageExpression><![CDATA["icon/barConsoIcon.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="30" y="4" width="200" forecolor="#04246a" height="35"/>
+				<reportElement x="30" y="-40" width="200" forecolor="#04246a" height="35"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Antonio" size="20" isBold="true"/>
 				</textElement>
@@ -22,7 +22,7 @@
 			</staticText>
 			<barChart>
 				<chart evaluationTime="Report" isShowLegend="false">
-					<reportElement x="30" y="50" width="585" height="371" uuid="f2562e2d-fba8-4eeb-9cb1-b0bc885abe81"/>
+					<reportElement x="10" y="0" width="500" height="300" uuid="f2562e2d-fba8-4eeb-9cb1-b0bc885abe81"/>
 					<box>
 						<pen lineColor="#E62744"/>
 						<leftPen lineColor="#27F546"/>
@@ -60,6 +60,37 @@
 					</valueAxisFormat>
 				</barPlot>
 			</barChart>
+			<lineChart>
+				<chart evaluationTime="Report" isShowLegend="false">
+					<reportElement x="10" y="350" width="550" height="300" uuid="d84d3135-2328-4f5f-abf5-217f4392b9fd"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Report"/>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{port}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{portExpression}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{portValue}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot isShowShapes="false">
+					<plot labelRotation="360.0" >
+						<seriesColor seriesOrder="0" color="#04246a"/>
+						<seriesColor seriesOrder="1" color="#2d75ff"/>
+					</plot>
+					<categoryAxisFormat labelRotation="360.0">
+						<axisFormat labelColor="#000000" tickLabelColor="#9aa1a9" axisLineColor="#000000">
+							<labelFont/>
+							<tickLabelFont/>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#9aa1a9" tickLabelColor="#9aa1a9" axisLineColor="#9aa1a9"/>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
 		</band>
 	</summary>
 </jasperReport>
