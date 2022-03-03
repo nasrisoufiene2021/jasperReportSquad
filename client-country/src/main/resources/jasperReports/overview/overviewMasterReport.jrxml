@@ -14,13 +14,9 @@
         <field name="bound" class="java.lang.String"/>
     </subDataset>
 
+    <parameter name="barBunkerConsoSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
+    <parameter name="barBunkerConsoDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
 
-    <parameter name="overviewSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
-    <parameter name="overviewCiiRankSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
-    <parameter name="overviewDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
-    <parameter name="overviewCiiRankDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
-    <parameter name="pieBunkerConsoSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
-    <parameter name="pieBunkerConsoDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
 
     <background>
         <band splitType="Stretch"/>
@@ -31,8 +27,8 @@
         <band height="540" splitType="Stretch">
             <subreport>
                 <reportElement x="-20" y="0" width="545" height="463" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
-                <dataSourceExpression><![CDATA[$P{pieBunkerConsoDataSource}]]></dataSourceExpression>
-                <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{pieBunkerConsoSubreport}]]></subreportExpression>
+                <dataSourceExpression><![CDATA[$P{barBunkerConsoDataSource}]]></dataSourceExpression>
+                <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{barBunkerConsoSubreport}]]></subreportExpression>
             </subreport>
         </band>
     </detail>

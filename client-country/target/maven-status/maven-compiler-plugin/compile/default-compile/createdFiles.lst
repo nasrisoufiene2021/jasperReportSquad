@@ -4,12 +4,14 @@ Bound\BoundDataSource.class
 Bound\StartToShift.class
 overview\MainOverview.class
 Bound\BoundData.class
+overview\PieFuelConso.class
 overview\TimeWindowChange.class
 ClientByCountry.class
 overview\TimeWindowChangeList.class
-overview\DataBean.class
-overview\DataBeanList.class
 Main.class
 overview\OverviewCiiRank.class
+overview\PieFuelConsoManager.class
+overview\BarConsoManager.class
 Client.class
 overview\Overview.class
+overview\BarConso.class

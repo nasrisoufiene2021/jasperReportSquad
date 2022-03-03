@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="client-list" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d5dce555-6fb2-412a-8421-3460f95acb03">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+
+	<field name = "port" class = "java.lang.String"/>
+	<field name = "portExpression" class = "java.lang.String"/>
+	<field name = "portValue" class = "java.lang.Integer"/>
+
+	<summary>
+		<band height="600" splitType="Stretch">
+			<image>
+				<reportElement x="4" y="4" width="32" height="32" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+				<imageExpression><![CDATA["icon/barConsoIcon.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="30" y="4" width="200" forecolor="#04246a" height="35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Antonio" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Conso & speed analysis]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

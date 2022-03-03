@@ -23,6 +23,11 @@
             <artifactId>spring-core</artifactId>
             <version>5.1.8.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.17.0</version>
+        </dependency>
     </dependencies>
     <build>
     <resources>

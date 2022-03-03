@@ -41,16 +41,28 @@ public class MainOverview {
         parameters.put("overviewDataSource", overviewDataSource);
         parameters.put("overviewSubreport", overviewSubreport);
 
-        prepareOverviewCiiRankSUbreport(parameters);
-        prepareTimeWindowChangeSubreport(parameters);
+   //     prepareOverviewCiiRankSUbreport(parameters);
+   //     prepareTimeWindowChangeSubreport(parameters);
         preparePieBunkerConsoSubreport(parameters);
    //     prepareFuelConsoSubreport(parameters);
-
+   //     prepareBarBunkerConsoSubreport(parameters);
 
         String fileName = "C:\\Temp\\noa-final.pdf";
         JasperPrint jasperPrint = JasperFillManager.fillReport(masteTableReport, parameters, new JREmptyDataSource());
-        printUUID(jasperPrint);
         JasperExportManager.exportReportToPdfStream(jasperPrint, new FileOutputStream(fileName));
+    }
+
+
+    private static void prepareBarBunkerConsoSubreport(Map<String, Object> parameters) throws IOException, JRException {
+        String systemPath = "jasperReports" + File.separator;
+        ClassPathResource classPathResource = new ClassPathResource(systemPath + "overview/barBunkerConsoSubreport.jrxml");
+        JasperReport barBunkerConsoSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
+
+        List<BarConso> barBunkerConsoList = BarConsoManager.extractFuelConso();
+        JRBeanCollectionDataSource barBunkerConsoDataSource = new JRBeanCollectionDataSource(barBunkerConsoList);
+
+        parameters.put("barBunkerConsoDataSource", barBunkerConsoDataSource);
+        parameters.put("barBunkerConsoSubreport", barBunkerConsoSubreport);
     }
 
     private static void preparePieBunkerConsoSubreport(Map<String, Object> parameters) throws IOException, JRException {

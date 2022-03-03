@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="client-list" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d5dce555-6fb2-412a-8421-3460f95acb03">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+
+	<field name = "port" class = "java.lang.String"/>
+	<field name = "portExpression" class = "java.lang.String"/>
+	<field name = "portValue" class = "java.lang.Integer"/>
+
+	<summary>
+		<band height="600" splitType="Stretch">
+			<image>
+				<reportElement x="4" y="4" width="32" height="32" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
+				<imageExpression><![CDATA["icon/barConsoIcon.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="30" y="4" width="200" forecolor="#04246a" height="35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Antonio" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Conso & speed analysis]]></text>
+			</staticText>
+			<barChart>
+				<chart evaluationTime="Report" isShowLegend="false">
+					<reportElement x="30" y="50" width="585" height="371" uuid="f2562e2d-fba8-4eeb-9cb1-b0bc885abe81"/>
+					<box>
+						<pen lineColor="#E62744"/>
+						<leftPen lineColor="#27F546"/>
+						<rightPen lineColor="#382CE6"/>
+					</box>
+					<chartTitle>
+						<font size="4"/>
+					</chartTitle>
+					<chartSubtitle>
+						<font size="4"/>
+					</chartSubtitle>
+					<chartLegend>
+						<font size="8"/>
+					</chartLegend>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Report"/>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{port}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{portExpression}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{portValue}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot labelRotation="360.0">
+						<seriesColor seriesOrder="0" color="#04246a"/>
+						<seriesColor seriesOrder="1" color="#2d75ff"/>
+					</plot>
+					<itemLabel/>
+					<categoryAxisFormat labelRotation="360.0">
+						<axisFormat labelColor="#000000" tickLabelColor="#9aa1a9" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#9aa1a9" tickLabelColor="#9aa1a9" axisLineColor="#9aa1a9"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>
