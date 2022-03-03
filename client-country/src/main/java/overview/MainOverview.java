@@ -43,9 +43,9 @@ public class MainOverview {
 
    //     prepareOverviewCiiRankSUbreport(parameters);
    //     prepareTimeWindowChangeSubreport(parameters);
-        preparePieBunkerConsoSubreport(parameters);
+   //     preparePieBunkerConsoSubreport(parameters);
    //     prepareFuelConsoSubreport(parameters);
-   //     prepareBarBunkerConsoSubreport(parameters);
+        prepareBarBunkerConsoSubreport(parameters);
 
         String fileName = "C:\\Temp\\noa-final.pdf";
         JasperPrint jasperPrint = JasperFillManager.fillReport(masteTableReport, parameters, new JREmptyDataSource());
