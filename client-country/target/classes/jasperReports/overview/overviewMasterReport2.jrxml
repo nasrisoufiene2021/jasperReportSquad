@@ -15,7 +15,7 @@
     </subDataset>
 
     <parameter name="barBunkerConsoSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
-    <parameter name="barBunkerConsoDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
+    <parameter name="barBunkerConsoDataSource2" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
 
     <parameter name = "consoTotal1" class = "java.lang.String"/>
     <parameter name = "consoTotal2" class = "java.lang.String"/>
@@ -52,7 +52,7 @@
                 <subreportParameter name="avgSpeed2">
                     <subreportParameterExpression><![CDATA[$P{avgSpeed2}]]></subreportParameterExpression>
                 </subreportParameter>
-                <dataSourceExpression><![CDATA[$P{barBunkerConsoDataSource}]]></dataSourceExpression>
+                <dataSourceExpression><![CDATA[$P{barBunkerConsoDataSource2}]]></dataSourceExpression>
                 <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{barBunkerConsoSubreport}]]></subreportExpression>
             </subreport>
         </band>

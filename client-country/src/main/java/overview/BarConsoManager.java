@@ -7,72 +7,84 @@ public class BarConsoManager {
     public static List<BarConso> extractFuelConso(){
 
         BarConso barConso1 = new BarConso();
-        barConso1.setPort("Baseline");
-        barConso1.setPortExpression("FRJL");
-        barConso1.setPortValue(80);
+        barConso1.setBlOrOpt("Baseline");
+        barConso1.setPortCode("FRJL");
+        barConso1.setConso(80);
+        barConso1.setSpeed(0);
 
 
         BarConso barConso2 = new BarConso();
-        barConso2.setPort("Optimized");
-        barConso2.setPortExpression("FRJL");
-        barConso2.setPortValue(160);
+        barConso2.setBlOrOpt("Optimized");
+        barConso2.setPortCode("FRJL");
+        barConso2.setConso(160);
+        barConso2.setSpeed(540);
 
         BarConso barConso3 = new BarConso();
-        barConso3.setPort("Baseline");
-        barConso3.setPortExpression("BEANR");
-        barConso3.setPortValue(130);
+        barConso3.setBlOrOpt("Baseline");
+        barConso3.setPortCode("BEANR");
+        barConso3.setConso(130);
+        barConso3.setSpeed(330);
 
         BarConso barConso4 = new BarConso();
-        barConso4.setPort("Optimized");
-        barConso4.setPortExpression("BEANR");
-        barConso4.setPortValue(100);
+        barConso4.setBlOrOpt("Optimized");
+        barConso4.setPortCode("BEANR");
+        barConso4.setConso(100);
+        barConso4.setSpeed(50);
 
 
         BarConso barConso5 = new BarConso();
-        barConso5.setPort("Baseline");
-        barConso5.setPortExpression("NLRTM");
-        barConso5.setPortValue(130);
+        barConso5.setBlOrOpt("Baseline");
+        barConso5.setPortCode("NLRTM");
+        barConso5.setConso(530);
+        barConso5.setSpeed(260);
 
         BarConso barConso6 = new BarConso();
-        barConso6.setPort("Optimized");
-        barConso6.setPortExpression("NLRTM");
-        barConso6.setPortValue(100);
+        barConso6.setBlOrOpt("Optimized");
+        barConso6.setPortCode("NLRTM");
+        barConso6.setConso(330);
+        barConso6.setSpeed(480);
 
 
         BarConso barConso7 = new BarConso();
-        barConso7.setPort("Baseline");
-        barConso7.setPortExpression("USMIA");
-        barConso7.setPortValue(130);
+        barConso7.setBlOrOpt("Baseline");
+        barConso7.setPortCode("USMIA");
+        barConso7.setConso(1000);
+        barConso7.setSpeed(650);
 
         BarConso barConso8 = new BarConso();
-        barConso8.setPort("Optimized");
-        barConso8.setPortExpression("USMIA");
-        barConso8.setPortValue(100);
+        barConso8.setBlOrOpt("Optimized");
+        barConso8.setPortCode("USMIA");
+        barConso8.setConso(760);
+        barConso8.setSpeed(30);
 
         BarConso barConso9 = new BarConso();
-        barConso9.setPort("Baseline");
-        barConso9.setPortExpression("DEBRV");
-        barConso9.setPortValue(130);
+        barConso9.setBlOrOpt("Baseline");
+        barConso9.setPortCode("DEBRV");
+        barConso9.setConso(130);
+        barConso9.setSpeed(1230);
 
         BarConso barConso10 = new BarConso();
-        barConso10.setPort("Optimized");
-        barConso10.setPortExpression("DEBRV");
-        barConso10.setPortValue(100);
+        barConso10.setBlOrOpt("Optimized");
+        barConso10.setPortCode("DEBRV");
+        barConso10.setConso(10);
 
         BarConso barConso11 = new BarConso();
-        barConso11.setPort("Baseline");
-        barConso11.setPortExpression("USCH5      ");
-        barConso11.setPortValue(130);
+        barConso11.setBlOrOpt("Baseline");
+        barConso11.setPortCode("USCH5");
+        barConso11.setConso(930);
+        barConso11.setSpeed(908);
 
         BarConso barConso12 = new BarConso();
-        barConso12.setPort("Optimized");
-        barConso12.setPortExpression("USCH5      ");
-        barConso12.setPortValue(100);
+        barConso12.setBlOrOpt("Optimized");
+        barConso12.setPortCode("USCH5");
+        barConso12.setConso(309);
+        barConso12.setSpeed(507);
 
         BarConso barConsoFictive = new BarConso();
-        barConsoFictive.setPort("");
-        barConsoFictive.setPortExpression("");
-        barConsoFictive.setPortValue(0);
+        barConsoFictive.setBlOrOpt("");
+        barConsoFictive.setPortCode("");
+        barConsoFictive.setConso(0);
+        barConsoFictive.setSpeed(0);
 
         List<BarConso> barConsoList = new ArrayList<>();
         barConsoList.add(barConso1);

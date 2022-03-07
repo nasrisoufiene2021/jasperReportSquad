@@ -3,6 +3,10 @@ package overview;
 import Bound.MainBound;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
@@ -31,7 +35,9 @@ public class MainOverview {
 
         String systemPath = "jasperReports" + File.separator;
         ClassPathResource classPathResource = new ClassPathResource(systemPath + "overview/overviewMasterReport.jrxml");
+        ClassPathResource classPathResource2 = new ClassPathResource(systemPath + "overview/overviewMasterReport2.jrxml");
         JasperReport masteTableReport = JasperCompileManager.compileReport(classPathResource.getInputStream());
+        JasperReport masteTableReport2 = JasperCompileManager.compileReport(classPathResource2.getInputStream());
 
         classPathResource = new ClassPathResource(systemPath + "overview/overviewSubreport.jrxml");
         JasperReport overviewSubreport = JasperCompileManager.compileReport(classPathResource.getInputStream());
@@ -41,15 +47,65 @@ public class MainOverview {
         parameters.put("overviewDataSource", overviewDataSource);
         parameters.put("overviewSubreport", overviewSubreport);
 
+
+        Map<String, Object> parameters2 = new HashMap<String, Object>();
+        parameters2.put("overviewDataSource", overviewDataSource);
+        parameters2.put("overviewSubreport", overviewSubreport);
+
    //     prepareOverviewCiiRankSUbreport(parameters);
    //     prepareTimeWindowChangeSubreport(parameters);
    //     preparePieBunkerConsoSubreport(parameters);
    //     prepareFuelConsoSubreport(parameters);
-        prepareBarBunkerConsoSubreport(parameters);
+  //      prepareBarBunkerConsoSubreport(parameters);
 
         String fileName = "C:\\Temp\\noa-final.pdf";
-        JasperPrint jasperPrint = JasperFillManager.fillReport(masteTableReport, parameters, new JREmptyDataSource());
-        JasperExportManager.exportReportToPdfStream(jasperPrint, new FileOutputStream(fileName));
+
+        List<BarConso> barBunkerConsoList = BarConsoManager.extractFuelConso();
+        JRBeanCollectionDataSource barBunkerConsoDataSource = new JRBeanCollectionDataSource(barBunkerConsoList);
+
+        JasperFillManager jasperFillManager1 = JasperFillManager.getInstance(new SimpleJasperReportsContext());
+        JasperFillManager jasperFillManager2 = JasperFillManager.getInstance(new SimpleJasperReportsContext());
+
+        JasperPrint jasperPrint2 = jasperFillManager1.fill(masteTableReport2, parameters, new JREmptyDataSource());
+
+        JasperPrint jasperPrint1 = jasperFillManager2.fill(masteTableReport, parameters2, new JREmptyDataSource());
+
+
+        List<JasperPrint> jasperPrintList = new ArrayList<JasperPrint>();
+        jasperPrintList.add(jasperPrint1);
+        jasperPrintList.add(jasperPrint2);
+
+   //     jasperPrint = multipageLinking(jasperPrint, jasperPrint2);
+
+
+        JRPdfExporter exporter = new JRPdfExporter();
+        exporter.setExporterInput(SimpleExporterInput.getInstance(jasperPrintList)); //Set as export input my list with JasperPrint s
+        exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(fileName)); //or any other out streaam
+        SimplePdfExporterConfiguration configuration = new SimplePdfExporterConfiguration();
+        configuration.setCreatingBatchModeBookmarks(true); //add this so your bookmarks work, you may set other parameters
+        exporter.setConfiguration(configuration);
+
+        exporter.exportReport();
+    //    JasperExportManager.exportReportToPdfStream(jasperPrint, new FileOutputStream(fileName));
+    }
+
+
+    static void prepareJasperPrint1(){
+
+    }
+
+
+    static void prepareJasperPrint2(){
+
+    }
+
+    private static JasperPrint multipageLinking(JasperPrint page1, JasperPrint page2) {
+        List pages = page2.getPages();
+        for (int count = 0; count < pages.size(); count++) {
+            page1.addPage((JRPrintPage) pages.get(count));
+        }
+
+        return page1;
     }
 
 
@@ -60,9 +116,25 @@ public class MainOverview {
 
         List<BarConso> barBunkerConsoList = BarConsoManager.extractFuelConso();
         JRBeanCollectionDataSource barBunkerConsoDataSource = new JRBeanCollectionDataSource(barBunkerConsoList);
+        JRBeanCollectionDataSource barBunkerConsoDataSource2 = new JRBeanCollectionDataSource(barBunkerConsoList);
 
         parameters.put("barBunkerConsoDataSource", barBunkerConsoDataSource);
+        parameters.put("barBunkerConsoDataSource2", barBunkerConsoDataSource2);
         parameters.put("barBunkerConsoSubreport", barBunkerConsoSubreport);
+
+
+        String consoTotal1 = "WB: +100 t";
+        String avgSpeed1 = "+0.2 kts";
+        String consoTotal2 = "WB: +100 t";
+        String avgSpeed2 = "+0.2 kts";
+
+        parameters.put("consoTotal1", consoTotal1);
+        parameters.put("avgSpeed1", avgSpeed1);
+        parameters.put("consoTotal2", consoTotal2);
+        parameters.put("avgSpeed2", avgSpeed2);
+
+
+
     }
 
     private static void preparePieBunkerConsoSubreport(Map<String, Object> parameters) throws IOException, JRException {

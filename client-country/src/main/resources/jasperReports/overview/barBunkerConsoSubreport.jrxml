@@ -3,12 +3,17 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="client-list" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d5dce555-6fb2-412a-8421-3460f95acb03">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 
-	<field name = "port" class = "java.lang.String"/>
-	<field name = "portExpression" class = "java.lang.String"/>
-	<field name = "portValue" class = "java.lang.Integer"/>
+	<parameter name = "consoTotal1" class = "java.lang.String"/>
+	<parameter name = "consoTotal2" class = "java.lang.String"/>
+	<parameter name = "avgSpeed1" class = "java.lang.String"/>
+	<parameter name = "avgSpeed2" class = "java.lang.String"/>
+	<field name = "blOrOpt" class = "java.lang.String"/>
+	<field name = "portCode" class = "java.lang.String"/>
+	<field name = "conso" class = "java.lang.Integer"/>
+	<field name = "speed" class = "java.lang.Integer"/>
 
 	<summary>
-		<band height="650" splitType="Stretch">
+		<band height="750" splitType="Stretch">
 			<image>
 				<reportElement x="4" y="-40" width="32" height="32" uuid="92bfc333-68cd-4239-8650-435799a6c336"/>
 				<imageExpression><![CDATA["icon/barConsoIcon.png"]]></imageExpression>
@@ -20,9 +25,84 @@
 				</textElement>
 				<text><![CDATA[Conso & speed analysis]]></text>
 			</staticText>
+
+
+
+			<rectangle>
+				<reportElement x="430" y="-30" width="13" height="10" forecolor="#04246a" backcolor="#04246a" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="445" y="-30" width="35" forecolor="#04246a" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="8"/>
+				</textElement>
+				<text><![CDATA[Conso O]]></text>
+			</staticText>
+
+			<rectangle>
+				<reportElement x="495" y="-30" width="13" height="10" forecolor="#2d75ff" backcolor="#2d75ff" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="510" y="-30" width="35" forecolor="#2d75ff" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="8"/>
+				</textElement>
+				<text><![CDATA[Conso B]]></text>
+			</staticText>
+
+
+
+			<rectangle>
+				<reportElement x="430" y="-10" width="13" height="1" forecolor="#04246a" backcolor="#04246a" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="445" y="-15" width="35" forecolor="#04246a" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="8"/>
+				</textElement>
+				<text><![CDATA[Speed O]]></text>
+			</staticText>
+
+			<rectangle>
+				<reportElement x="495" y="-10" width="13" height="1" forecolor="#2d75ff" backcolor="#2d75ff" uuid="28215a64-94ac-4e71-96f6-771e81c280ef">
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="510" y="-15" width="35" forecolor="#2d75ff" height="10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Roboto" size="8"/>
+				</textElement>
+				<text><![CDATA[Speed B]]></text>
+			</staticText>
+
+
+
+
+			<staticText>
+				<reportElement x="0" y="175" width="20"  height="50" forecolor="#04246a" uuid="192c5fd9-a20c-475b-a910-b960edd007eb"/>
+				<textElement rotation="Left" textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Antonio" size="12"/>
+				</textElement>
+				<text><![CDATA[Conso]]></text>
+			</staticText>
 			<barChart>
 				<chart evaluationTime="Report" isShowLegend="false">
-					<reportElement x="10" y="0" width="500" height="300" uuid="f2562e2d-fba8-4eeb-9cb1-b0bc885abe81"/>
+					<reportElement x="30" y="50" width="520" height="250" uuid="f2562e2d-fba8-4eeb-9cb1-b0bc885abe81"/>
 					<box>
 						<pen lineColor="#E62744"/>
 						<leftPen lineColor="#27F546"/>
@@ -41,9 +121,9 @@
 				<categoryDataset>
 					<dataset resetType="Report"/>
 					<categorySeries>
-						<seriesExpression><![CDATA[$F{port}]]></seriesExpression>
-						<categoryExpression><![CDATA[$F{portExpression}]]></categoryExpression>
-						<valueExpression><![CDATA[$F{portValue}]]></valueExpression>
+						<seriesExpression><![CDATA[$F{blOrOpt}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{portCode}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{conso}]]></valueExpression>
 					</categorySeries>
 				</categoryDataset>
 				<barPlot>
@@ -53,16 +133,31 @@
 					</plot>
 					<itemLabel/>
 					<categoryAxisFormat labelRotation="360.0">
-						<axisFormat labelColor="#000000" tickLabelColor="#9aa1a9" axisLineColor="#000000"/>
+						<axisFormat labelColor="#FFFFFF" tickLabelColor="#9aa1a9" axisLineColor="#000000">
+							<tickLabelFont>
+								<font fontName="Roboto" size="7" isBold="true"/>
+							</tickLabelFont>
+						</axisFormat>
 					</categoryAxisFormat>
 					<valueAxisFormat>
-						<axisFormat labelColor="#9aa1a9" tickLabelColor="#9aa1a9" axisLineColor="#9aa1a9"/>
+						<axisFormat labelColor="#FFFFFF" tickLabelColor="#9aa1a9" axisLineColor="#FFFFFF"/>
 					</valueAxisFormat>
 				</barPlot>
 			</barChart>
+
+
+
+			<staticText>
+				<reportElement x="0" y="475" width="20"  height="50" forecolor="#04246a" uuid="192c5fd9-a20c-475b-a910-b960edd007eb"/>
+				<textElement rotation="Left" textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Antonio" size="12"/>
+				</textElement>
+				<text><![CDATA[Speed]]></text>
+			</staticText>
+
 			<lineChart>
 				<chart evaluationTime="Report" isShowLegend="false">
-					<reportElement x="10" y="350" width="550" height="300" uuid="d84d3135-2328-4f5f-abf5-217f4392b9fd"/>
+					<reportElement x="30" y="350" width="520" height="250" uuid="d84d3135-2328-4f5f-abf5-217f4392b9fd"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
@@ -70,9 +165,9 @@
 				<categoryDataset>
 					<dataset resetType="Report"/>
 					<categorySeries>
-						<seriesExpression><![CDATA[$F{port}]]></seriesExpression>
-						<categoryExpression><![CDATA[$F{portExpression}]]></categoryExpression>
-						<valueExpression><![CDATA[$F{portValue}]]></valueExpression>
+						<seriesExpression><![CDATA[$F{blOrOpt}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{portCode}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{speed}]]></valueExpression>
 					</categorySeries>
 				</categoryDataset>
 				<linePlot isShowShapes="false">
@@ -83,14 +178,72 @@
 					<categoryAxisFormat labelRotation="360.0">
 						<axisFormat labelColor="#000000" tickLabelColor="#9aa1a9" axisLineColor="#000000">
 							<labelFont/>
-							<tickLabelFont/>
+							<tickLabelFont>
+								<font fontName="Roboto" size="7" isBold="true"/>
+							</tickLabelFont>
 						</axisFormat>
 					</categoryAxisFormat>
 					<valueAxisFormat>
-						<axisFormat labelColor="#9aa1a9" tickLabelColor="#9aa1a9" axisLineColor="#9aa1a9"/>
+						<axisFormat labelColor="#FFFFFF" tickLabelColor="#9aa1a9" axisLineColor="#FFFFFF">
+							<tickLabelFont>
+								<font fontName="Roboto"/>
+							</tickLabelFont>
+						</axisFormat>
 					</valueAxisFormat>
 				</linePlot>
 			</lineChart>
+
+
+
+			<staticText>
+				<reportElement x="0" y="650" width="20"  height="50" forecolor="#04246a" uuid="192c5fd9-a20c-475b-a910-b960edd007eb"/>
+				<textElement rotation="Left" textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Antonio" size="12"/>
+				</textElement>
+				<text><![CDATA[Bound]]></text>
+			</staticText>
+			<line>
+				<reportElement x="55" y="650"  width="1" forecolor="#f3f3f3" height="50" uuid="008c3176-6c53-4da8-bc4f-95c35987d342"/>
+			</line>
+			<textField>
+				<reportElement x="100" y="650" width="120" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				</reportElement>
+				<textElement verticalAlignment="Middle" textAlignment="Center">
+					<font size="12" fontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{consoTotal1}]]> </textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="670" width="120" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				</reportElement>
+				<textElement verticalAlignment="Middle" textAlignment="Center">
+					<font size="12" fontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{avgSpeed1}]]> </textFieldExpression>
+			</textField>
+
+
+
+
+			<line>
+				<reportElement x="305" y="650" width="1" forecolor="#f3f3f3" backcolor="#f3f3f3" height="50" uuid="008c3176-6c53-4da8-bc4f-95c35987d342"/>
+			</line>
+			<textField>
+				<reportElement x="350" y="650" width="120" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				</reportElement>
+				<textElement verticalAlignment="Middle" textAlignment="Center">
+					<font size="12" fontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{consoTotal2}]]> </textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="670" width="120" height="20" forecolor="#04246a"  uuid="b8bb1e46-e7ae-4fc7-b979-b363e6b81bdc">
+				</reportElement>
+				<textElement verticalAlignment="Middle" textAlignment="Center">
+					<font size="12" fontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{avgSpeed2}]]> </textFieldExpression>
+			</textField>
 		</band>
 	</summary>
 </jasperReport>

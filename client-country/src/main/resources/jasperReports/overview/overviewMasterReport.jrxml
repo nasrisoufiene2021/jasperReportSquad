@@ -17,16 +17,41 @@
     <parameter name="barBunkerConsoSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
     <parameter name="barBunkerConsoDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
 
+    <parameter name = "consoTotal1" class = "java.lang.String"/>
+    <parameter name = "consoTotal2" class = "java.lang.String"/>
+    <parameter name = "avgSpeed1" class = "java.lang.String"/>
+    <parameter name = "avgSpeed2" class = "java.lang.String"/>
 
     <background>
         <band splitType="Stretch"/>
     </background>
     <columnHeader>
+        <band height="50" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="20"  height="50" forecolor="#04246a" uuid="192c5fd9-a20c-475b-a910-b960edd007eb"/>
+                <textElement rotation="Left" textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Antonio" size="12"/>
+                </textElement>
+                <text><![CDATA[Bound]]></text>
+            </staticText>
+        </band>
     </columnHeader>
     <detail>
         <band height="540" splitType="Stretch">
             <subreport>
                 <reportElement x="-20" y="0" width="545" height="463" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
+                <subreportParameter name="consoTotal1">
+                    <subreportParameterExpression><![CDATA[$P{consoTotal1}]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportParameter name="consoTotal2">
+                    <subreportParameterExpression><![CDATA[$P{consoTotal2}]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportParameter name="avgSpeed1">
+                    <subreportParameterExpression><![CDATA[$P{avgSpeed1}]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportParameter name="avgSpeed2">
+                    <subreportParameterExpression><![CDATA[$P{avgSpeed2}]]></subreportParameterExpression>
+                </subreportParameter>
                 <dataSourceExpression><![CDATA[$P{barBunkerConsoDataSource}]]></dataSourceExpression>
                 <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{barBunkerConsoSubreport}]]></subreportExpression>
             </subreport>

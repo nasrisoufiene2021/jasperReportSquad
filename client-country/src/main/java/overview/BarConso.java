@@ -2,31 +2,41 @@ package overview;
 
 public class BarConso {
 
-    private String port;
-    private String portExpression;
-    private Integer portValue;
+    private String blOrOpt;
+    private String portCode;
+    private Integer conso;
+    private Integer speed;
 
-    public String getPort() {
-        return port;
+
+    public String getBlOrOpt() {
+        return blOrOpt;
     }
 
-    public void setPort(String port) {
-        this.port = port;
+    public void setBlOrOpt(String blOrOpt) {
+        this.blOrOpt = blOrOpt;
     }
 
-    public String getPortExpression() {
-        return portExpression;
+    public String getPortCode() {
+        return portCode;
     }
 
-    public void setPortExpression(String portExpression) {
-        this.portExpression = portExpression;
+    public void setPortCode(String portCode) {
+        this.portCode = portCode;
     }
 
-    public Integer getPortValue() {
-        return portValue;
+    public Integer getConso() {
+        return conso;
     }
 
-    public void setPortValue(Integer portValue) {
-        this.portValue = portValue;
+    public void setConso(Integer conso) {
+        this.conso = conso;
+    }
+
+    public Integer getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(Integer speed) {
+        this.speed = speed;
     }
 }
