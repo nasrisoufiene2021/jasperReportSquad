@@ -63,7 +63,18 @@ public class MainOverview {
 
         parameters.put("barBunkerConsoDataSource", barBunkerConsoDataSource);
         parameters.put("barBunkerConsoSubreport", barBunkerConsoSubreport);
+
+        List<String> bufferHourList = BarConsoManager.extractBufferHourData();
+        parameters.put("bound1", bufferHourList.get(0));
+        parameters.put("bound2", bufferHourList.get(1));
+        parameters.put("blBufferBound1", bufferHourList.get(2));
+        parameters.put("blBufferBound2", bufferHourList.get(3));
+        parameters.put("optBufferBound1", bufferHourList.get(4));
+        parameters.put("optBufferBound2", bufferHourList.get(5));
+        parameters.put("deltaBound1", bufferHourList.get(6));
+        parameters.put("deltaBound2", bufferHourList.get(7));
     }
+
 
     private static void preparePieBunkerConsoSubreport(Map<String, Object> parameters) throws IOException, JRException {
         String systemPath = "jasperReports" + File.separator;

@@ -61,18 +61,13 @@ public class BarConsoManager {
 
         BarConso barConso11 = new BarConso();
         barConso11.setPort("Baseline");
-        barConso11.setPortExpression("USCH5      ");
+        barConso11.setPortExpression("USCH5");
         barConso11.setPortValue(130);
 
         BarConso barConso12 = new BarConso();
         barConso12.setPort("Optimized");
-        barConso12.setPortExpression("USCH5      ");
+        barConso12.setPortExpression("USCH5");
         barConso12.setPortValue(100);
-
-        BarConso barConsoFictive = new BarConso();
-        barConsoFictive.setPort("");
-        barConsoFictive.setPortExpression("");
-        barConsoFictive.setPortValue(0);
 
         List<BarConso> barConsoList = new ArrayList<>();
         barConsoList.add(barConso1);
@@ -87,9 +82,21 @@ public class BarConsoManager {
         barConsoList.add(barConso10);
         barConsoList.add(barConso11);
         barConsoList.add(barConso12);
-        barConsoList.add(barConsoFictive);
 
 
         return barConsoList;
+    }
+
+    public static List<String> extractBufferHourData(){
+        List<String> bufferHourList = new ArrayList<>();
+        bufferHourList.add("WB");
+        bufferHourList.add("EB");
+        bufferHourList.add("300 / 14%");
+        bufferHourList.add("280 / 12%");
+        bufferHourList.add("280 / 12%");
+        bufferHourList.add("310 / 14%");
+        bufferHourList.add("-20H / -2%");
+        bufferHourList.add("310 / 14%");
+        return bufferHourList;
     }
 }

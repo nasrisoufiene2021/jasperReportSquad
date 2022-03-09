@@ -16,7 +16,14 @@
 
     <parameter name="barBunkerConsoSubreport" class="net.sf.jasperreports.engine.JasperReport"/>
     <parameter name="barBunkerConsoDataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
-
+    <parameter name = "bound1" class = "java.lang.String"/>
+    <parameter name = "bound2" class = "java.lang.String"/>
+    <parameter name = "blBufferBound1" class = "java.lang.String"/>
+    <parameter name = "blBufferBound2" class = "java.lang.String"/>
+    <parameter name = "optBufferBound1" class = "java.lang.String"/>
+    <parameter name = "optBufferBound2" class = "java.lang.String"/>
+    <parameter name = "deltaBound1" class = "java.lang.String"/>
+    <parameter name = "deltaBound2" class = "java.lang.String"/>
 
     <background>
         <band splitType="Stretch"/>
@@ -27,6 +34,30 @@
         <band height="540" splitType="Stretch">
             <subreport>
                 <reportElement x="-20" y="0" width="545" height="463" uuid="912669d4-3215-4aa6-b491-31510861840d"/>
+                <subreportParameter name="bound1">
+                    <subreportParameterExpression><![CDATA[$P{bound1}]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportParameter name="bound2">
+                    <subreportParameterExpression><![CDATA[$P{bound2}]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportParameter name="blBufferBound1">
+                    <subreportParameterExpression><![CDATA[$P{blBufferBound1}]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportParameter name="blBufferBound2">
+                    <subreportParameterExpression><![CDATA[$P{blBufferBound2}]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportParameter name="optBufferBound1">
+                    <subreportParameterExpression><![CDATA[$P{optBufferBound1}]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportParameter name="optBufferBound2">
+                    <subreportParameterExpression><![CDATA[$P{optBufferBound2}]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportParameter name="deltaBound1">
+                    <subreportParameterExpression><![CDATA[$P{deltaBound1}]]></subreportParameterExpression>
+                </subreportParameter>
+                <subreportParameter name="deltaBound2">
+                    <subreportParameterExpression><![CDATA[$P{deltaBound2}]]></subreportParameterExpression>
+                </subreportParameter>
                 <dataSourceExpression><![CDATA[$P{barBunkerConsoDataSource}]]></dataSourceExpression>
                 <subreportExpression class="net.sf.jasperreports.engine.JasperReport"><![CDATA[$P{barBunkerConsoSubreport}]]></subreportExpression>
             </subreport>

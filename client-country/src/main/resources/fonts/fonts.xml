@@ -33,4 +33,8 @@
         <boldItalic><![CDATA[fonts/Roboto/roboto-medium.ttf]]></boldItalic>
         <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
     </fontFamily>
+    <fontFamily name="Helvetica">
+        <normal><![CDATA[fonts/Helvetica/Helvetica.ttf]]></normal>
+        <pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+    </fontFamily>
 </fontFamilies>
